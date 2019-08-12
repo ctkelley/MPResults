@@ -1,9 +1,9 @@
 """
-MP_Results
+MPResults2019
 
 This module has the code you need for the mixed precision example.
 """
-module MP_Results
+module MPResults2019
 
 export knl
 export heqtest
@@ -12,11 +12,11 @@ export frpintTeX
 export data_populate
 export data_harvest
 
-using Heq4knl
 using PyPlot
 using LinearAlgebra
 using JLD2
 using Printf
+using .Heq4knl
 
 include("knlv01.jl")
 include("heqtest.jl")
