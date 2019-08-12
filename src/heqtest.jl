@@ -1,0 +1,27 @@
+"""
+heqtest(n=100, c=.5, printh="yes"; jprecision=Float64, jmaxit=10)
+
+Generates the examples for the SIREV paper.
+"""
+function heqtest(n=100, c=.5, printh="yes"; jprecision=Float64, jmaxit=10)
+setc(c)
+hdata=heqinit(n)
+FS=ones(n,1)
+x0=ones(n,1)
+FPS=jprecision.(ones(n,n))
+knloutfd=knl(x0, FS, FPS, heqf! ;
+         atol=1.e-18, rtol=1.e-18, pdata=hdata, maxit=jmaxit)
+knloutex=knl(x0, FS, FPS, heqf!, heqJ!; 
+         atol=1.e-18, rtol=1.e-18, pdata=hdata, maxit=jmaxit)
+if printh == "yes"
+sol=knloutex.solution
+cpout = chandprint(sol)
+for i=1:21
+@printf("%1.2e      %1.5e \n",cpout[i,1], cpout[i,2])
+end
+@printf("\n \n \n")
+println(knloutex.ithist)
+end
+return (exactout=knloutex, fdout=knloutfd)
+end
+
