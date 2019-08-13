@@ -15,7 +15,7 @@ for ic=1:3
    figure(ic)
    plotknl(half, c, maxit, levels)
 #   plotknl(half, c, maxit, levels; bigtitle=figtitle)
-   cd("..")
+   cd("../..")
 end
 half="yes"
 for ic=1:3
@@ -27,7 +27,7 @@ for ic=1:3
    figure(ic+3)
    plotknl(half, c, maxit, levels)
 #   plotknl(half, c, maxit, levels; bigtitle=figtitle)
-   cd("../..")
+   cd("../../..")
 end
 
 

@@ -10,10 +10,10 @@ files to come back.
 I have generously precomputed all this stuff and put it in the
 Precomputed_Data directory.
 
-This function is part of the SIREV_MP module. Do not try to use it 
+This function is part of the MPResults2019 module. Do not try to use it 
 without doing a
 
-using SIREV_MP
+using MPResults
 
 at the Julia prompt.
 """
