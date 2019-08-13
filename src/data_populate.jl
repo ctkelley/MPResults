@@ -8,7 +8,7 @@ If you set half="yes" be prepared to wait a couple weeks for the
 files to come back.
 
 I have generously precomputed all this stuff and put it in the
-Precomputed_Data directory.
+Data_From_Paper directory.
 
 This function is part of the MPResults2019 module. Do not try to use it 
 without doing a
