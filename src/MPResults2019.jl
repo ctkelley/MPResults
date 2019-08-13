@@ -25,4 +25,6 @@ include("fprintTeX.jl")
 include("data_populate.jl")
 include("data_harvest.jl")
 
+using .Heq4knl
+
 end
