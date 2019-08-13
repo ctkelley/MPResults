@@ -16,8 +16,8 @@ using PyPlot
 using LinearAlgebra
 using JLD2
 using Printf
-using .Heq4knl
 
+include("Heq4knl.jl")
 include("knlv01.jl")
 include("heqtest.jl")
 include("plotknl.jl")
