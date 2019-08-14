@@ -12,6 +12,7 @@ Herewith all the Julia codes for my paper __Newton's Method in Mixed Precision__
    1. If the notebook fails to render, do not bother me. Instead, look at the sad tale of woe on
        https://github.com/jupyter/notebook/issues/3555
    2. It's better to clone the repo and get to the notebook from your own computer anyhow.
+   3. __newtonmp.html__ is the bib for the notebook. Do not touch it.
 4. A pdf file of the notebook.
 5. The LaTeX and BiBTex files for this in /BiB_and_LaTeX
 
