@@ -54,12 +54,12 @@ Put these things in a module and cook it up so that
 
 FV=F!(FV,x) returns FV=F(x)
 
-JV=J!(FV,FP,x) returns FP=F'(x); 
-    (FV,FP, x) must be the argument list, even if J! does not need FP.
+FP=J!(FV,FP,x) returns FP=F'(x); 
+    (FV,FP, x) must be the argument list, even if FP does not need FV.
     One reason for this is that the finite-difference Jacobian
     does and that is the default in the solver.
 
-In the futrue J! will also be a matrix-vector product and FPS will
+In the future J! will also be a matrix-vector product and FPS will
 be the PREALLOCATED (!!) storage for the GMRES(m) Krylov vectors.
 
 Lemme tell ya 'bout precision. I designed this code for full precision
