@@ -1,8 +1,15 @@
 # MPResults2019
 
+This repo supports my paper __Newton's Method in Mixed Precision__. 
+
 ## What's in this repo?
 
-Herewith all the Julia codes for my paper __Newton's Method in Mixed Precision__. You get all kinds of things here.
+### The paper and a presentation. Sooner or later I will put up.
+
+1. A presentation on the results.
+2. Some kind of line to the paper itself.
+
+### The codes: you get all kinds of things here.
 
 1. The codes in /src
 2. The data I used to make the plots in /Data_From_Paper
