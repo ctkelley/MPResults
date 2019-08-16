@@ -115,7 +115,7 @@ end
 setc(cin)
 
 If you are varying c in a compuation, this function
-lets to set it.
+lets you set it.
 """
 function setc(cin)
 global c
