@@ -147,7 +147,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Newton\_MP}
+    \title{MPResults2019}
     
     
     
@@ -369,6 +369,7 @@
     
 
     
+    \$
 
 \newcommand{\calf}{{\cal F}}
 \newcommand{\dnu}{d \nu}
@@ -379,9 +380,10 @@
 \newcommand{\mg}{{\bf G}}
 \newcommand{\mi}{{\bf I}}
 \newcommand{\diag}{\mbox{diag}}
-%\newcommand{\begeq}{{\begin{equation}}}
-%\newcommand{\endeq}{{\end{equation}}}
+\newcommand{\begeq}{{\begin{equation}}}
+\newcommand{\endeq}{{\end{equation}}}
 
+\$
 
 \hypertarget{newtons-method-in-multiple-precision-c.-t.-kelley}{%
 \section{Newton's Method in Multiple Precision: C. T.
@@ -453,7 +455,7 @@ u_i - \left(
 =0.
 \end{equation}
 
-One can simplify the approximate integral operator 
+One can simplify the approximate integral operator in \eqnok{hmid} and
 expose some useful structure. Since
 
 \begin{equation}
@@ -577,7 +579,7 @@ LOAD\_PATH! If you forget to do the push! command, strange things may
 happen.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{8}{\hspace{4pt}}
+\prompt{In}{incolor}{7}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{push!}\PY{p}{(}\PY{n+nb}{LOAD\PYZus{}PATH}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{/}\PY{l+s}{U}\PY{l+s}{s}\PY{l+s}{e}\PY{l+s}{r}\PY{l+s}{s}\PY{l+s}{/}\PY{l+s}{c}\PY{l+s}{t}\PY{l+s}{k}\PY{l+s}{/}\PY{l+s}{D}\PY{l+s}{r}\PY{l+s}{o}\PY{l+s}{p}\PY{l+s}{b}\PY{l+s}{o}\PY{l+s}{x}\PY{l+s}{/}\PY{l+s}{J}\PY{l+s}{u}\PY{l+s}{l}\PY{l+s}{i}\PY{l+s}{a}\PY{l+s}{/}\PY{l+s}{M}\PY{l+s}{P}\PY{l+s}{R}\PY{l+s}{e}\PY{l+s}{s}\PY{l+s}{u}\PY{l+s}{l}\PY{l+s}{t}\PY{l+s}{s}\PY{l+s}{2}\PY{l+s}{0}\PY{l+s}{1}\PY{l+s}{9}\PY{l+s}{\PYZdq{}}\PY{p}{)}
 \PY{k}{using} \PY{n}{MPResults2019}
@@ -585,7 +587,7 @@ happen.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\hspace{4pt}}
+\prompt{In}{incolor}{8}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{heqtest}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
@@ -621,7 +623,7 @@ happen.
 \end{Verbatim}
 
             \begin{tcolorbox}[breakable, boxrule=.5pt, size=fbox, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{9}{\hspace{3.5pt}}
+\prompt{Out}{outcolor}{8}{\hspace{3.5pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 (exactout = (solution = [1.00707e+00; 1.01754e+00; … ; 1.24989e+00;
 1.25081e+00], ithist = [1.54457e+00, 7.94167e-03, 1.55209e-07, 2.67377e-15,
@@ -667,7 +669,7 @@ It's worthwhile to look at the help screen.
     It's worth asking for help with knl \ldots{}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\hspace{4pt}}
+\prompt{In}{incolor}{9}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{o}{?}\PY{n}{knl}
 \end{Verbatim}
@@ -681,7 +683,7 @@ install\textbf{k}er\textbf{n}e\textbf{l}
 \end{Verbatim}
  
             
-\prompt{Out}{outcolor}{10}{}
+\prompt{Out}{outcolor}{9}{}
     
     \begin{verbatim}
 knl(x, FS, FPS, F!, J!=diffjac!; rtol=1.e-6, atol=1.e-12, 
@@ -774,7 +776,7 @@ array. If you forget the \textbf{.} Julia will complain.
 The paper has plots for double, single, and half precsion computations
 for c=.5, .99, and 1.0. The half precision results take a very long time
 to get. On my computer (2019 iMac; 8 cores, 64GB of memoroy) the half
-precision compute time was over two weeks. Kids don't try this at home.
+precision compute time was over two weeks. Kids, don't try this at home.
 
 The data for the paper are in the cleverly named directory
 \textbf{Data\_From\_Paper}
@@ -810,7 +812,7 @@ much Julia to understand this, but you do need to know something and I
 can't help with that.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\hspace{4pt}}
+\prompt{In}{incolor}{10}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Home4mp}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/}\PY{l+s}{U}\PY{l+s}{s}\PY{l+s}{e}\PY{l+s}{r}\PY{l+s}{s}\PY{l+s}{/}\PY{l+s}{c}\PY{l+s}{t}\PY{l+s}{k}\PY{l+s}{/}\PY{l+s}{D}\PY{l+s}{r}\PY{l+s}{o}\PY{l+s}{p}\PY{l+s}{b}\PY{l+s}{o}\PY{l+s}{x}\PY{l+s}{/}\PY{l+s}{J}\PY{l+s}{u}\PY{l+s}{l}\PY{l+s}{i}\PY{l+s}{a}\PY{l+s}{/}\PY{l+s}{M}\PY{l+s}{P}\PY{l+s}{R}\PY{l+s}{e}\PY{l+s}{s}\PY{l+s}{u}\PY{l+s}{l}\PY{l+s}{t}\PY{l+s}{s}\PY{l+s}{2}\PY{l+s}{0}\PY{l+s}{1}\PY{l+s}{9}\PY{l+s}{\PYZdq{}}
 \PY{n}{cd}\PY{p}{(}\PY{n}{Home4mp}\PY{p}{)}
@@ -819,14 +821,14 @@ can't help with that.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, boxrule=.5pt, size=fbox, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{11}{\hspace{3.5pt}}
+\prompt{Out}{outcolor}{10}{\hspace{3.5pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 "/Users/ctk/Dropbox/Julia/MPResults2019"
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\hspace{4pt}}
+\prompt{In}{incolor}{11}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cd}\PY{p}{(}\PY{n}{Home4mp}\PY{p}{)}
 \PY{k}{using} \PY{n}{PyPlot}
@@ -835,7 +837,7 @@ can't help with that.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\hspace{4pt}}
+\prompt{In}{incolor}{12}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cd}\PY{p}{(}\PY{n}{Home4mp}\PY{p}{)}
 \PY{n}{cd}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{M}\PY{l+s}{i}\PY{l+s}{x}\PY{l+s}{e}\PY{l+s}{d}\PY{l+s}{\PYZus{}}\PY{l+s}{P}\PY{l+s}{r}\PY{l+s}{e}\PY{l+s}{c}\PY{l+s}{i}\PY{l+s}{s}\PY{l+s}{i}\PY{l+s}{o}\PY{l+s}{n}\PY{l+s}{\PYZus{}}\PY{l+s}{c}\PY{l+s}{=}\PY{l+s}{5}\PY{l+s}{\PYZdq{}}\PY{p}{)}
@@ -860,7 +862,6 @@ that.
     % Add a bibliography block to the postdoc
     
 \bibliographystyle{siam}
-\bibliography{newtonmp}
-
+\bibliography{newtonmp} 
     
     \end{document}
