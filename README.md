@@ -6,7 +6,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 1. A presentation on the results. __MPResults2019.pdf__
 
-### Sooner or later I'll finish the paper and put that up.
+### Sooner or later I'll finish the paper and put up
 
 
 2. Some kind of link to the paper itself.
@@ -36,7 +36,9 @@ This is a Julia project. It has .toml files to prove it.
 
 1. Clone the repo and a directory called MPResults2019 will appear somewhere on your computer.
    If the directory is named MPResults2019-master or something like that, rename it to MPResults2019
-2. Put that directory in your Julia LOAD_PATH.
+2. Move that directory to someplace reasonable and put it in your Julia LOAD_PATH with the command
+   push!(LOAD_PATH,"/Users/yourid/whereyouputit/MPResults2019")
+   You must use the absolute pathname (ie starting with /Users for Mac) for this.
 3. Type __using MPResults2019__ at the Julia prompt and you're ready to go.
    If you get complaints about missing packages, install those packages.
 
