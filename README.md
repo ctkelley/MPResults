@@ -6,7 +6,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 1. A presentation on the results. __MPResults2019.pdf__
 
-### The paper and a presentation. Sooner or later I will put up.
+### Sooner or later I'll finish the paper and put that up.
 
 
 2. Some kind of link to the paper itself.
@@ -14,6 +14,11 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 ### The codes: you get all kinds of things here.
 
 1. The codes in /src
+   You need these packages: 
+   1. PyPlot
+   2. LinearAlgebra
+   3. JLD2
+   4. Printf
 2. The data I used to make the plots in /Data_From_Paper
    1. The half-precision data takes a very long time to generate (weeks)
    2. I show you how to make an abridged version of the plots in the notebook ...
@@ -30,8 +35,10 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 This is a Julia project. It has .toml files to prove it.
 
 1. Clone the repo and a directory called MPResults2019 will appear somewhere on your computer.
+   If the directory is named MPResults2019-master or something like that, rename it to MPResults2019
 2. Put that directory in your Julia LOAD_PATH.
 3. Type __using MPResults2019__ at the Julia prompt and you're ready to go.
+   If you get complaints about missing packages, install those packages.
 
 # KNL
 
