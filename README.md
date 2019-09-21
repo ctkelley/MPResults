@@ -32,15 +32,31 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 ## How to use this mess
 
-This is a Julia project. It has .toml files to prove it.
+This is a Julia application. It has .toml files to prove it.
 
-1. Clone the repo and a directory called MPResults2019 will appear somewhere on your computer.
-   If the directory is named MPResults2019-master or something like that, rename it to MPResults2019
-2. Move that directory to someplace reasonable and put it in your Julia LOAD_PATH with the command
+1. Clone the repo from your choice of directories. My favorite way to do this is to cd to that directiory and issue this terminal command
+
+git clone https://github.com/ctkelley/MPResults2019
+
+2. Put that directory in your Julia LOAD_PATH with the command
+
    push!(LOAD_PATH,"/Users/yourid/whereyouputit/MPResults2019")
+   
    You must use the absolute pathname (ie starting with /Users for Mac) for this.
-3. Type __using MPResults2019__ at the Julia prompt and you're ready to go.
-   If you get complaints about missing packages, install those packages.
+3. Type __using MPResults2019__ at the Julia prompt and you're ready to go. Unless ...
+     1. If you get complaints about missing packages, install those packages. Then try again.
+     2. Alternatively, cd to the directory. Fire up pkg (the package manager) by typing ] at the julia prompt. Then
+     
+        (v1.2) pkg> activate .
+        
+                Activating environment at `~/Julia/MPResults2019/Project.toml`
+
+        (MPResults2019) pkg> instantiate
+        
+                Julia prints out the story of package installation.
+        
+       The instantiate command should install your missing packages automatically. Get out of pkg by typing a backspace. 
+
 
 # KNL
 
