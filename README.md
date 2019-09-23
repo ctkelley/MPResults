@@ -55,7 +55,9 @@ git clone https://github.com/ctkelley/MPResults2019
         
                 Julia prints out the story of package installation.
         
-       The instantiate command should install your missing packages automatically. Get out of pkg by typing a backspace. 
+       The instantiate command should install your missing packages automatically. 
+       
+       Get out of pkg by typing a backspace. 
 
 
 # KNL
