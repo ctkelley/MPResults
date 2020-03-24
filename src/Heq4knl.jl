@@ -75,7 +75,7 @@ end
 
 """
 function HeqFix!(Gfix,x,pdata)
-The fixed point map. Gfix goes direclty into the function and
+The fixed point map. Gfix goes directly into the function and
 Jacobian evaluations for the nonlinear equations formulation.
 
 The precomputed data is a big deal for this example. In particular, 
