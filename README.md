@@ -60,8 +60,9 @@ git clone https://github.com/ctkelley/MPResults2019
                 Activating environment at `~/Julia/MPResults2019/Project.toml`
 
         MPResults2019) pkg> __instantiate__
+        MPResults2019) pkg> __update__
         
-                Julia prints out the story of package installation.
+                Julia prints out the story of package installation. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
         
        The instantiate command should install your missing packages automatically. 
        
