@@ -19,6 +19,8 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
    2. LinearAlgebra
    3. JLD2
    4. Printf
+   5. FFTW
+   6. AbstractFFTS
 2. The data I used to make the plots in /Data_From_Paper
    1. The half-precision data takes a very long time to generate (weeks)
    2. I show you how to make an abridged version of the plots in the notebook ...
