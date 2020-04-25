@@ -75,7 +75,7 @@ git clone https://github.com/ctkelley/MPResults2019
         
        
 
-#@ KNL
+## KNL
 
 I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __knlv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change.
 
