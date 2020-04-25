@@ -57,7 +57,7 @@ git clone https://github.com/ctkelley/MPResults2019
         MPResults) pkg> __instantiate__<br>
         MPResults) pkg> __update__
         
-        It is very important that PyPlot and IJulia use the same conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
+        It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
          1. Move .julia/config to a safe place
         
          2. Delete or move .julia
