@@ -63,7 +63,7 @@ git clone https://github.com/ctkelley/MPResults2019
                 Activating environment at `~/Julia/MPResults/Project.toml`
 
         MPResults) pkg> __instantiate__<br>
-        MPResults) pkg> __update_
+        MPResults) pkg> __update__
        
           3. Get out of pkg by typing a backspace. 
           
