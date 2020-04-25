@@ -2,14 +2,13 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
+## Contents
+
+[Files](#What's-in-this-repo)
 [Usage](#How-to-use-this-mess)
 
-## What's in this repo?
 
-1. A presentation on the results. __MP_Talk.pdf__
-
-
-### The codes: you get all kinds of things here.
+## What's in this repo
 
 1. The codes in /src
    You need these packages: 
@@ -63,7 +62,10 @@ git clone https://github.com/ctkelley/MPResults2019
           
           Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
         
- 4. It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
+        
+ # What if the notebook doesn't work?
+ 
+It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
 
       1. Move .julia/config to a safe place
         
