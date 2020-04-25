@@ -2,6 +2,8 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
+[Usage](#How to use this mess)
+
 ## What's in this repo?
 
 1. A presentation on the results. __MP_Talk.pdf__
