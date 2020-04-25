@@ -6,10 +6,6 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 1. A presentation on the results. __MP_Talk.pdf__
 
-### Sooner or later I'll finish the paper and put up
-
-
-2. Some kind of link to the paper itself.
 
 ### The codes: you get all kinds of things here.
 
@@ -30,7 +26,6 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
    2. It's better to clone the repo and get to the notebook from your own computer anyhow.
    3. __newtonmp.html__ is the bib for the notebook. Do not touch it.
 4. A pdf file of the notebook.
-5. The LaTeX and BiBTex files for this in /BiB_and_LaTeX
 
 ## How to use this mess
 
@@ -63,13 +58,13 @@ git clone https://github.com/ctkelley/MPResults2019
         MPResults) pkg> __update__
         
         It is very important that PyPlot and IJulia use the same conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
-        1. Move .julia/config to a safe place
+         1. Move .julia/config to a safe place
         
-        2. Delete or move .julia
+         2. Delete or move .julia
         
-        3. Run Julia (which will create a new .julia in your home directory)
+         3. Run Julia (which will create a new .julia in your home directory)
         
-        4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
+         4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
         
                 Julia prints out the story of package installation. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
         
