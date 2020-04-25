@@ -1,4 +1,4 @@
-name = "MPResults2019"
+name = "MPResults"
 
 [deps]
 AbstractFFTs = "621f4979-c628-5d54-868e-fcf4e3e8185c"
