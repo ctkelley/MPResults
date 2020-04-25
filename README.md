@@ -83,7 +83,9 @@ At some point (after Armijo, GMRES, and pseudo-transient continuation get in the
 
 ## What if the notebook doesn't work?
  
-It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
+It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. You have a good chance of fixing this with the __update__ command within pkg. If you did the update when you installed this application and are still having problems. Try typing __update IJulia__ from pkg. If that fails ...
+
+The worst case, which has happened to me more than once, is that you'll have to 
 
    1. Move .julia/config to a safe place
         
