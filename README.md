@@ -55,25 +55,24 @@ git clone https://github.com/ctkelley/MPResults2019
                 Activating environment at `~/Julia/MPResults/Project.toml`
 
         MPResults) pkg> __instantiate__<br>
-        MPResults) pkg> __update__
-        
-         Julia prints out the story of package installation. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
+        MPResults) pkg> __update_
+       
+          3. Get out of pkg by typing a backspace. 
+          
+          Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
         
  4. It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
-         1. Move .julia/config to a safe place
+          1. Move .julia/config to a safe place
         
-         2. Delete or move .julia
+          2. Delete or move .julia
         
-         3. Run Julia (which will create a new .julia in your home directory)
+          3. Run Julia (which will create a new .julia in your home directory)
         
          4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
         
 
         
-       The instantiate command should install your missing packages automatically. 
        
-          3. Get out of pkg by typing a backspace. 
-
 
 # KNL
 
