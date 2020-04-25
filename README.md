@@ -4,7 +4,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 ## What's in this repo?
 
-1. A presentation on the results. __MPResults2019.pdf__
+1. A presentation on the results. __MPResults.pdf__
 
 ### Sooner or later I'll finish the paper and put up
 
