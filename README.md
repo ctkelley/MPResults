@@ -2,16 +2,20 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-## What's in this repo?
+## Readme Contents
 
-1. A presentation on the results. __MP_Talk.pdf__
+[Files](#What's-in-this-repo)
 
-### Sooner or later I'll finish the paper and put up
+[Usage](#How-to-use-this-mess)
+
+[Solver](#KNL)
+
+[Notebook Problems?](#What-if-the-notebook-doesn't-work?)
+
+[Support](#Support)
 
 
-2. Some kind of link to the paper itself.
-
-### The codes: you get all kinds of things here.
+## What's in this repo
 
 1. The codes in /src
    You need these packages: 
@@ -30,7 +34,6 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
    2. It's better to clone the repo and get to the notebook from your own computer anyhow.
    3. __newtonmp.html__ is the bib for the notebook. Do not touch it.
 4. A pdf file of the notebook.
-5. The LaTeX and BiBTex files for this in /BiB_and_LaTeX
 
 ## How to use this mess
 
@@ -60,32 +63,40 @@ git clone https://github.com/ctkelley/MPResults2019
                 Activating environment at `~/Julia/MPResults/Project.toml`
 
         MPResults) pkg> __instantiate__<br>
-        MPResults) pkg> __update__
-        
-        It is very important that PyPlot and IJulia use the same conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
-        1. Move .julia/config to a safe place
-        
-        2. Delete or move .julia
-        
-        3. Run Julia (which will create a new .julia in your home directory)
-        
-        4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
-        
-                Julia prints out the story of package installation. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
-        
-       The instantiate command should install your missing packages automatically. 
+        MPResults) pkg> __update_
        
           3. Get out of pkg by typing a backspace. 
+          
+          Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
+        
+        
+ 
 
+        
+       
 
-# KNL
+#@ KNL
 
-I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __knlv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. 
+I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __knlv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change.
 
 At some point (after Armijo, GMRES, and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
 
+## What if the notebook doesn't work?
+ 
+It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. You have a good chance of fixing this with the __update__ command within pkg. If you did the update when you installed this application and are still having problems. Try typing __update IJulia__ from pkg. If that fails ...
 
-# Support
+The worst case, which has happened to me more than once, is that you'll have to 
+
+   1. Move .julia/config to a safe place
+        
+   2. Delete or move .julia
+   
+   3. Run Julia (which will create a new .julia in your home directory)
+        
+   4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
+        
+
+## Support
 
 This project was partially supported by
 1. Army Research Office grant W911NF-16-1-0504 and
