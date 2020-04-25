@@ -75,13 +75,13 @@ git clone https://github.com/ctkelley/MPResults2019
         
        
 
-# KNL
+#@ KNL
 
 I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __knlv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change.
 
 At some point (after Armijo, GMRES, and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
 
-# What if the notebook doesn't work?
+## What if the notebook doesn't work?
  
 It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
 
@@ -94,7 +94,7 @@ It is very important that PyPlot and IJulia use the same version of conda. If th
    4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
         
 
-# Support
+## Support
 
 This project was partially supported by
 1. Army Research Office grant W911NF-16-1-0504 and
