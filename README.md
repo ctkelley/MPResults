@@ -2,7 +2,7 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-[Usage](#How to use this mess)
+[Usage](#How-to-use-this-mess)
 
 ## What's in this repo?
 
