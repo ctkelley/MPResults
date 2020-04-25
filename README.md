@@ -8,6 +8,12 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 [Usage](#How-to-use-this-mess)
 
+[Solver](#KNL)
+
+[Notebook Problems?](#What-if-the-notebook-doesn't-work?)
+
+[Support](#Support)
+
 
 ## What's in this repo
 
