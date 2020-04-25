@@ -1,4 +1,4 @@
-# MPResults2019
+# MPResults
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
@@ -43,24 +43,24 @@ a project, and a package.
 
 git clone https://github.com/ctkelley/MPResults2019
 
-2. Put MPResults2019 in your Julia LOAD_PATH with the command (issued from the REPL)
+2. Put MPResults in your Julia LOAD_PATH with the command (issued from the REPL)
 
    __push!(LOAD_PATH,"/Users/yourid/whereyouputit/MPResults2019")__
    
    You must use the absolute pathname (ie starting with /Users for Mac) for this.
-3. Type __using MPResults2019__ at the Julia prompt and you're ready to go. Unless ...
+3. Type __using MPResults__ at the Julia prompt and you're ready to go. Unless ...
      1. If you get complaints about missing packages, install those packages. Then try again.
      2. Alternatively, for those of you who are comfortable using pkg...
-         1. cd to the MPResults2019 directory. Fire up pkg (the package manager) by typing __]__ at the julia prompt. 
+         1. cd to the MPResults directory. Fire up pkg (the package manager) by typing __]__ at the julia prompt. 
          
          2. Then
      
         (v1.2) pkg> __activate .__
         
-                Activating environment at `~/Julia/MPResults2019/Project.toml`
+                Activating environment at `~/Julia/MPResults/Project.toml`
 
-        MPResults2019) pkg> __instantiate__<br>
-        MPResults2019) pkg> __update__
+        MPResults) pkg> __instantiate__<br>
+        MPResults) pkg> __update__
         
         It is very important that PyPlot and IJulia use the same conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
         1. Move .julia/config to a safe place
