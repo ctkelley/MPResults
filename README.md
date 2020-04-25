@@ -59,7 +59,7 @@ git clone https://github.com/ctkelley/MPResults2019
         
          Julia prints out the story of package installation. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
         
-        It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
+ 4. It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. The worst case, which has happened to me more than once, is that you'll have to 
          1. Move .julia/config to a safe place
         
          2. Delete or move .julia
