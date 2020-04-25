@@ -28,7 +28,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 2. The data I used to make the plots in /Data_From_Paper
    1. The half-precision data takes a very long time to generate (weeks)
    2. I show you how to make an abridged version of the plots in the notebook ...
-3. A juypter notebook **MPResults2019.ipynb** explaining how it all works
+3. A juypter notebook **MPResults.ipynb** explaining how it all works
    1. If the notebook fails to render, do not bother me. Instead, look at the sad tale of woe on
        https://github.com/jupyter/notebook/issues/3555
    2. It's better to clone the repo and get to the notebook from your own computer anyhow.
@@ -44,11 +44,11 @@ a project, and a package.
 
 1. Clone the repo into choice of directory. My favorite way to do this is to cd to that directiory and issue this terminal command
 
-git clone https://github.com/ctkelley/MPResults2019
+git clone https://github.com/ctkelley/MPResults
 
 2. Put MPResults in your Julia LOAD_PATH with the command (issued from the REPL)
 
-   __push!(LOAD_PATH,"/Users/yourid/whereyouputit/MPResults2019")__
+   __push!(LOAD_PATH,"/Users/yourid/whereyouputit/MPResults")__
    
    You must use the absolute pathname (ie starting with /Users for Mac) for this.
 3. Type __using MPResults__ at the Julia prompt and you're ready to go. Unless ...
