@@ -2,7 +2,7 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-## Contents
+## Readme Contents
 
 [Files](#What's-in-this-repo)
 
