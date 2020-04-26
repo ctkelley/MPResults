@@ -1,5 +1,5 @@
 """
-    knl(x, FS, FPS, F!, J!=diffjac!; rtol=1.e-6, atol=1.e-12, 
+    nsold(x, FS, FPS, F!, J!=diffjac!; rtol=1.e-6, atol=1.e-12, 
             maxit=20, dx=1.e-6, pdata=nothing) 
 
 This is Version .01. Nothing with a version number having a negative
@@ -40,7 +40,7 @@ duplicate the mixed precision results in my SIREV-ED submission.
 
 ------------------------
 
-# Using knl.jl
+# Using nsold.jl
 
 Here are the rules as of June 6, 2019
 
@@ -64,7 +64,7 @@ be the PREALLOCATED (!!) storage for the GMRES(m) Krylov vectors.
 
 Lemme tell ya 'bout precision. I designed this code for full precision
 functions and linear algebra in any precision you want. You can decleare
-FPS as Float64, Float32, or Float16 and knl will do the right thing if 
+FPS as Float64, Float32, or Float16 and nsold will do the right thing if 
 YOU do not destroy the declaration in your J! function. I'm amazed 
 that this works so easily. 
 
@@ -81,7 +81,7 @@ search kicks in.
 
 
 """
-function knl(x, FS, FPS, F!, J! = diffjac!; rtol=1.e-6, atol=1.e-12, 
+function nsold(x, FS, FPS, F!, J! = diffjac!; rtol=1.e-6, atol=1.e-12, 
             maxit=20, dx=1.e-6, pdata=nothing) 
 
 EvalF!(FS,x,F!,pdata)
