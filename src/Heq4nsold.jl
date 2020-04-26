@@ -1,5 +1,5 @@
 """
-Heq4knl
+Heq4nsold
 
 This module contains the Chandrasekhar H-equation examples
 and everything you should need to run them.
@@ -10,7 +10,7 @@ making go away.
 If you only want to run the examples, you should not have to look
 at the code.
 """
-module Heq4knl
+module Heq4nsold
 
 global Gfix=[1.0;1.0]
 global c=.5 
@@ -27,7 +27,7 @@ using FFTW
 """
 function heqJ!(F,FP,x,pdata)
 
-The is the Jacobian evaluation playing by knl rules. The
+The is the Jacobian evaluation playing by nsold rules. The
 precomputed data is a big deal for this one. 
 """
 function heqJ!(F,FP,x,pdata)
@@ -54,7 +54,7 @@ end
 """
 heqf!(F,x,pdata)
 
-The function evaluation as per knl rules.
+The function evaluation as per nsold rules.
 
 The precomputed data is a big deal for this example. In particular, 
 the output pdata.FFA from plan_fft goes to the fixed point map
