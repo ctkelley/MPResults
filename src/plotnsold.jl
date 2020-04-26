@@ -1,5 +1,5 @@
 """
-plotknl(half="no",c=.5,maxit=10,level=5; bigtitle="")
+plotnsold(half="no",c=.5,maxit=10,level=5; bigtitle="")
 
 Makes the plots for the SIAM Review paper.
 
@@ -8,7 +8,7 @@ Makes convergence rate tables for Float16 computations.
 Newton's Method in Mixed-Precision.
 
 """
-function plotknl(half="no",c=.5,maxit=10,level=5; bigtitle="")
+function plotnsold(half="no",c=.5,maxit=10,level=5; bigtitle="")
 fmtplot=("k-","k--","k-.","k-.","k>:")
 Fdata=zeros(4,level,maxit+1)
 dout=zeros(maxit+1,level)
