@@ -13,8 +13,8 @@ for ic=1:3
    figtitle=string("Figure"," ",string(ic))
    cd(workingdir)
    figure(ic)
-   plotknl(half, c, maxit, levels)
-#   plotknl(half, c, maxit, levels; bigtitle=figtitle)
+   plotnsold(half, c, maxit, levels)
+#   plotnsold(half, c, maxit, levels; bigtitle=figtitle)
    cd("../..")
 end
 half="yes"
@@ -25,8 +25,8 @@ for ic=1:3
    figtitle=string("Figure"," ",string(ic+3))
    cd(workingdir)
    figure(ic+3)
-   plotknl(half, c, maxit, levels)
-#   plotknl(half, c, maxit, levels; bigtitle=figtitle)
+   plotnsold(half, c, maxit, levels)
+#   plotnsold(half, c, maxit, levels; bigtitle=figtitle)
    cd("../../..")
 end
 

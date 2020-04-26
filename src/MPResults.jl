@@ -5,9 +5,9 @@ This module has the code you need for the mixed precision example.
 """
 module MPResults
 
-export knl
+export nsold
 export heqtest
-export plotknl
+export plotnsold
 export frpintTeX
 export data_populate
 export data_harvest
@@ -17,14 +17,14 @@ using LinearAlgebra
 using JLD2
 using Printf
 
-include("Heq4knl.jl")
-include("knlv01.jl")
+include("Heq4nsold.jl")
+include("nsoldv01.jl")
 include("heqtest.jl")
-include("plotknl.jl")
+include("plotnsold.jl")
 include("fprintTeX.jl")
 include("data_populate.jl")
 include("data_harvest.jl")
 
-using .Heq4knl
+using .Heq4nsold
 
 end
