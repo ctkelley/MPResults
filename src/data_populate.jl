@@ -1,7 +1,7 @@
 """
 data_populate(half="no", c, level)
 
-This makes the files that plotknl uses to make the figures
+This makes the files that plotnsold uses to make the figures
 and tables in the paper. 
 
 If you set half="yes" be prepared to wait a couple weeks for the
