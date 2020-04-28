@@ -82,6 +82,8 @@ I'm working on putting the codes __and examples__ from my nonlinear solver books
 
 At some point (after Armijo, GMRES, and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
 
+__nsoldv01.jl__ is the name of the file. The solver is __nsold__. I want to keep the name of the solver indpendent of the version number so I can use these examples when I move to version .02.
+
 ## Notebook Problems
  
 It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. You have a good chance of fixing this with the __update__ command within pkg. If you did the update when you installed this application and are still having problems. Try typing __update IJulia__ from pkg. If that fails ...
