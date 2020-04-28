@@ -76,9 +76,9 @@ git clone https://github.com/ctkelley/MPResults
         
        
 
-## KNL
+## NSOLD
 
-I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __knlv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change.
+I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __nsold.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change. __This is version .01. No software with log(version) < 0 should be trusted.__
 
 At some point (after Armijo, GMRES, and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
 
