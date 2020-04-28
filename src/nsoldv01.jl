@@ -47,7 +47,8 @@ Here are the rules as of June 6, 2019
 F! is the nonlinear residual. 
 J! is the Jacobian evaluation.
 
-Put these things in a module and cook it up so that
+I like to put everything in a module so that I can use global 
+(within the module) variables. 
 
 1) You allocate storage for the function and Jacobian in advance 
    --> in the calling program <-- NOT in FS and FPS
@@ -76,8 +77,8 @@ that will cost you a extra function evaluation everytime the line
 search kicks in.
 
 2) Any precomputed data for functions, Jacobians, matrix-vector products
-   may live in global variables within the module. Don't do that if
-   you can avoid it. Use pdata instead.
+   may live in global variables within a module containing F! and J!. 
+   Don't do that if you can avoid it. Use pdata instead.
 
 
 """
