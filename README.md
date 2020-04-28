@@ -87,13 +87,13 @@ It is very important that PyPlot and IJulia use the same version of conda. If th
 
 The worst case, which has happened to me more than once, is that you'll have to 
 
-   1. Move .julia/config to a safe place
-     1. Your startup.jl lives in config. Don't lose it.
+   1. Move .julia/config to a safe place.
+      1. Your startup.jl lives in config. Don't lose it.
         
    2. Delete or move .julia
    
    3. Run Julia (which will create a new .julia in your home directory)
-     1. Put your config diectory back in there. 
+      1. Put your config diectory back in there. 
         
    4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
         
