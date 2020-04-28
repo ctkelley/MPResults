@@ -31,8 +31,9 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 3. A juypter notebook **MPResults.ipynb** explaining how it all works
    1. If the notebook fails to render, do not bother me. Instead, look at the sad tale of woe on
        https://github.com/jupyter/notebook/issues/3555
-   2. It's better to clone the repo and get to the notebook from your own computer anyhow.
-   3. __newtonmp.html__ is the bib for the notebook. Do not touch it.
+       1. The pdf is a better job than github's render anyhow. You can look at it.
+   2. It's even better to clone the repo and get to the notebook from your own computer anyhow.
+   3. __newtonmp.html__ is the bib for the notebook. __Do not touch it__.
 4. A pdf file of the notebook.
 
 ## How to use this mess
