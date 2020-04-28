@@ -68,7 +68,7 @@ git clone https://github.com/ctkelley/MPResults
        
           3. Get out of pkg by typing a backspace. 
           
-          Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but could be dead when you read this.
+          Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but I could be dead when you read this.
         
         
  
