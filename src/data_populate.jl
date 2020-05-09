@@ -1,5 +1,5 @@
 """
-data_populate(half="no", c, level)
+data_populate(c=.5; half="no",level)
 
 This makes the files that plotnsold uses to make the figures
 and tables in the paper. 
