@@ -1,5 +1,5 @@
 """
-data_populate(c=.5; half="no",level)
+data_populate(c=.5; half="no",level=3)
 
 This makes the files that plotnsold uses to make the figures
 and tables in the paper. 
@@ -17,7 +17,7 @@ using MPResults
 
 at the Julia prompt.
 """
-function data_populate(c=.5; half="no",level)
+function data_populate(c=.5; half="no",level=3)
 #
 # Check the value of c against what the paper uses.
 #
