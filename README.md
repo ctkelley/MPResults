@@ -26,7 +26,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
    5. FFTW
    6. AbstractFFTS
 2. The data I used to make the plots in /Data_From_Paper
-   1. The half-precision data takes a very long time to generate (weeks)
+   1. The half-precision data takes a very long time to generate (days to weeks)
    2. I show you how to make an abridged version of the plots in the notebook ...
 3. A juypter notebook **MPResults.ipynb** explaining how it all works
    1. If the notebook fails to render, do not bother me. Instead, look at the sad tale of woe on
