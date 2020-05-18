@@ -23,10 +23,13 @@ function data_populate(c=.5; half="no",level=3)
 #
 if c==.5
    locator="=5"
+   nlmaxit=10
 elseif c==.99
    locator="=99"
+   nlmaxit=10
 elseif c==1
    locator="=1"
+   nlmaxit=30
 else
    println("Your choices are c=.5, .99, 1.")
    return
@@ -56,11 +59,11 @@ for nd=1:level
 n=512*2^nd
 
 if half=="no"
-    fout64=heqtest(n, c, "no")
-    fout32=heqtest(n, c, "no"; jprecision=Float32)
+    fout64=heqtest(n, c, "no"; jmaxit=nlmaxit)
+    fout32=heqtest(n, c, "no"; jprecision=Float32, jmaxit=nlmaxit)
     @save savedat[nd] fout64 fout32
 else
-    fout16=heqtest(n, c, "no"; jprecision=Float16)
+    fout16=heqtest(n, c, "no"; jprecision=Float16, jamxit=nlmaxit)
     @save savedat[nd] fout16
 end
 
