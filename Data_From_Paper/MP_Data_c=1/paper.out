@@ -1,0 +1,4 @@
+diffjac! (generic function with 1 method)
+heqtest
+1.00000e+00
+("FP16_c=1/paper1024.jld2", "FP16_c=1/paper2048.jld2", "FP16_c=1/paper4096.jld2", "FP16_c=1/paper8192.jld2", "FP16_c=1/paper16384.jld2", "FP16_c=1/paper32768.jld2")
