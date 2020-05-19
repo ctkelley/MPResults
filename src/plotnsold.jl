@@ -44,7 +44,11 @@ for ip=1:ipmax
     end
     xlabel(gxlabel)
     ylabel(gylabel)
+    if half=="yes" && c==1.0
+    axis([0.0, maxit, 1.e-6, 1.0])
+    else
     axis([0.0, maxit, 1.e-15, 1.0])
+    end
     title(titles4heq[ip])
 end
 PyPlot.tight_layout()
