@@ -73,10 +73,10 @@ if half=="no"
      "Single, analytic",
      "Single, FD")
 else
-   titles4heq=("Half, analytic",
-     "Half, FD")
-#   titles4heq=("Half precision, analytic Jacobian",
-#     "Half precision, finite difference Jacobian")
+#   titles4heq=("Half, analytic",
+#     "Half, FD")
+   titles4heq=("Half precision, analytic Jacobian",
+     "Half precision, finite difference Jacobian")
 end
 legenddata=Array{String,1}(undef,level)
 for il=1:level
