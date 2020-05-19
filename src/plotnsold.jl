@@ -44,11 +44,9 @@ for ip=1:ipmax
     end
     xlabel(gxlabel)
     ylabel(gylabel)
-    if half=="yes" && c==1.0
-    axis([0.0, maxit, 1.e-6, 1.0])
-    else
-    axis([0.0, maxit, 1.e-15, 1.0])
-    end
+    aymin=ymin(c,half)
+println(c,"  ",half,"  ",aymin)
+    axis([0.0, maxit, aymin, 1.0])
     title(titles4heq[ip])
 end
 PyPlot.tight_layout()
@@ -112,4 +110,15 @@ for ir=1:level
 end
 end
 
+function ymin(c,half)
+ymin=1.e-15
+if half=="yes" 
+   if c ==1
+      ymin=1.e-6
+   elseif c==99
+      ymin=1.e-10
+   end
+end
+return ymin
+end
 
