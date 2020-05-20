@@ -43,7 +43,9 @@ This is a Julia application. It has .toml files to prove it.
 Look at https://julialang.github.io/Pkg.jl/v1/glossary/# to see the difference between an application, 
 a project, and a package.
 
-1. Clone the repo into choice of directory. My favorite way to do this is to cd to that directiory and issue this terminal command
+0. Have a github accout and know how to use it.
+
+1. Clone the repo into your choice of directory. My favorite way to do this is to cd to that directiory and issue this terminal command
 
 git clone https://github.com/ctkelley/MPResults
 
