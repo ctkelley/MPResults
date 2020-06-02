@@ -1,4 +1,0 @@
-diffjac! (generic function with 1 method)
-heqtest
-5.00000e-01
-("FP16_c=5/Float16/paper1024.jld2", "FP16_c=5/Float16/paper2048.jld2", "FP16_c=5/Float16/paper4096.jld2", "FP16_c=5/Float16/paper8192.jld2", "FP16_c=5/Float16/paper16384.jld2", "FP16_c=5/Float16/paper32768.jld2")
