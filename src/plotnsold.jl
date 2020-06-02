@@ -45,7 +45,6 @@ for ip=1:ipmax
     xlabel(gxlabel)
     ylabel(gylabel)
     aymin=ymin(c,half)
-println(c,"  ",half,"  ",aymin)
     axis([0.0, maxit, aymin, 1.0])
     title(titles4heq[ip])
 end
