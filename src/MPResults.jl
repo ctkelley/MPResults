@@ -11,8 +11,6 @@ export plotnsold
 export frpintTeX
 export data_populate
 export data_harvest
-export convertjld
-export convert16jld
 
 using PyPlot
 using LinearAlgebra
@@ -26,7 +24,6 @@ include("plotnsold.jl")
 include("fprintTeX.jl")
 include("data_populate.jl")
 include("data_harvest.jl")
-include("convertjld.jl")
 
 using .Heq4nsold
 
