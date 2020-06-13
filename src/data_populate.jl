@@ -74,7 +74,8 @@ end
 function filenames(BaseDirectory)
 savedat=Array{String,1}(undef,5)
 for nd=1:5
-    dimstring=string("/paper",string(512*2^nd),".jld2")
+    dimstring=string("/paper",string(512*2^nd),".jld")
+#    dimstring=string("/paper",string(512*2^nd),".jld2")
     savedat[nd]=string(BaseDirectory,dimstring)
 end
 return savedat
