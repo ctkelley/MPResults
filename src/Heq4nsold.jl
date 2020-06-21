@@ -163,12 +163,14 @@ end
 
 """
 heq_toeplitz(seed,b,FFA)
-Multiply an nxn Toeplitz matrix with seed in R^(2N-1) by a vector b
+Multiply an nxn Toeplitz matrix with seed in R^(2n-1) by a vector b
 """
 function heq_toeplitz(seed,b,FFA)
 n=length(b);
 y=[b;zeros(n,1)]
 w=zeros(size(b))
+fongpei=1
+if fongpei==1
 bigseed=zeros(2*n,1);
 bigseed.=[seed[n:2*n-1]; 0; seed[1:n-1]]
 u=heq_cprod(bigseed,y,FFA)
@@ -176,7 +178,33 @@ for iw=1:n
 w[iw]=u[iw]
 end
 return w
+#return @view u[1:n]
+else
+u=zeros(2*n,1);
+u.=[seed[n:2*n-1]; 0; seed[1:n-1]]
+xb=zeros(size(u))+im*zeros(size(u))
+heq_cprod!(u,xb,y,FFA)
+return @view u[1:n]
 end
+#for iw=1:n
+#w[iw]=u[iw]
+#end
+#return w
+end
+
+"""
+heq_cprod!(u,b,mode)
+Circulant matrix-vector product with FFT
+compute u = C b
+"""
+
+function heq_cprod!(u,xb,b,FFA)
+xb.=FFA\b;
+xb.=conj(FFA*u).*xb
+u.=real(FFA*xb)
+return u
+end
+
 
 """
 heq_cprod(seed,b,mode)
@@ -185,8 +213,8 @@ compute u = C b
 """
 
 function heq_cprod(seed,b,FFA)
-w=conj(FFA*seed)
 xb=FFA\b;
+w=conj(FFA*seed)
 xz=w.*xb
 u=real(FFA*xz)
 return u
