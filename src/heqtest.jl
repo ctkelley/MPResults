@@ -15,7 +15,7 @@ nsoldoutex=nsold(x0, FS, FPS, heqf!, heqJ!;
          atol=1.e-18, rtol=1.e-18, pdata=hdata, maxit=jmaxit)
 if printh == "yes"
 sol=nsoldoutex.solution
-cpout = chandprint(sol)
+cpout = chandprint(sol,hdata)
 for i=1:21
 @printf("%1.2e      %1.5e \n",cpout[i,1], cpout[i,2])
 end
