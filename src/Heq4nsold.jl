@@ -25,6 +25,7 @@ using AbstractFFTs
 using FFTW
 using LinearAlgebra
 using LinearAlgebra.BLAS
+using UnsafeArrays
 
 """
 function heqJ!(F,FP,x,pdata)
