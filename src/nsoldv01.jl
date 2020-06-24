@@ -136,8 +136,8 @@ function diffjac!(FS,FPS,F!,x,dx,pdata)
 precision=typeof(FPS[1,1])
 h=dx*norm(x,Inf) + 1.e-8
 n=length(x)
-y=ones(n,1)
-FY=ones(n,1)
+y=ones(size(x))
+FY=ones(size(x))
 for ic=1:n
     y.=x;
     y[ic]=y[ic]+h
