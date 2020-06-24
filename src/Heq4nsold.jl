@@ -103,34 +103,43 @@ Initialize H-equation precomputed data.
 Returns (mu=mu, hseed=hseed, FFA=FFA)
 Does not provide c, which is still a global
 """
-function heqinit(n)
-FFA=plan_fft(ones(2*n,1))
-mu=.5:1:n-.5
+function heqinit(x0,n)
+T=typeof(x0)
+n=length(x0)
+if T <: Vector
+   vsize = (n,)
+   bsize = (2*n,)
+   ssize = (2*n-1,)
+else
+   error("please dimension your stuff as vectors, ie (n,) not (n,1)")
+end
+FFA=plan_fft(ones(bsize))
+mu=collect(.5:1:n-.5)
 mu=mu/n
-hseed=zeros(2*n-1,1)
+hseed=zeros(ssize)
 for is=1:2*n-1
     hseed[is]=1.0/is
 end
 hseed=(.5/n)*hseed
-bigseed=zeros(2*n,1);
-sstore=zeros(n,1)
-rstore=zeros(2*n,1)
-zstore=zeros(2*n,1)*(1.0 + im)
-zstore2=zeros(2*n,1)*(1.0 + im)
-zstore3=zeros(2*n,1)*(1.0 + im)
+bigseed=zeros(bsize);
+sstore=zeros(vsize)
+rstore=zeros(bsize)
+zstore=zeros(bsize)*(1.0 + im)
+zstore2=zeros(bsize)*(1.0 + im)
+zstore3=zeros(bsize)*(1.0 + im)
 FFB=plan_fft!(zstore)
 bigseed.=[hseed[n:2*n-1]; 0; hseed[1:n-1]]
 zstore2.=conj(FFA*bigseed)
-return (mu=mu, hseed=hseed, bigseed=bigseed,
+return (mu=mu, hseed=hseed,
        sstore=sstore, rstore=rstore, zstore=zstore, zstore2=zstore2, 
-       zstore3=zstore3, FFA=FFA, FFB=FFB)
+       zstore3=zstore3, FFB=FFB)
 end
 
 
 """
 setc(cin)
 
-If you are varying c in a compuation, this function
+If you are varying c in a computation, this function
 lets you set it.
 """
 function setc(cin)
@@ -183,7 +192,7 @@ Multiply an nxn Hankel matrix with seed in R^(2N-1) by a vector b
 FFA is what you get with plan_fft before you start computing
 """
 function heq_hankel!(b,pdata)
-b.=reverse(b;dims=1)
+reverse!(b)
 heq_toeplitz!(b,pdata)
 end
 

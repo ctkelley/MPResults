@@ -4,10 +4,10 @@ heqtest(n=100, c=.5, printh="yes"; jprecision=Float64, jmaxit=10)
 Generates the examples for the SIREV paper.
 """
 function heqtest(n=100, c=.5, printh="yes"; jprecision=Float64, jmaxit=10)
+FS=ones(n,)
+x0=ones(n,)
 setc(c)
-hdata=heqinit(n)
-FS=ones(n,1)
-x0=ones(n,1)
+hdata=heqinit(x0,n)
 FPS=jprecision.(ones(n,n))
 nsoldoutfd=nsold(x0, FS, FPS, heqf! ;
          atol=1.e-18, rtol=1.e-18, pdata=hdata, maxit=jmaxit)
