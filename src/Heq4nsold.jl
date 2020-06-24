@@ -12,7 +12,6 @@ at the code.
 """
 module Heq4nsold
 
-global Gfix=[1.0;1.0]
 global c=.5 
 
 export heqf!
@@ -25,7 +24,6 @@ using AbstractFFTs
 using FFTW
 using LinearAlgebra
 using LinearAlgebra.BLAS
-using UnsafeArrays
 
 """
 function heqJ!(F,FP,x,pdata)
@@ -46,12 +44,6 @@ Gfix=x-F
 Gfix=-(c*n)*(Gfix.*Gfix.*mu)
 @views @inbounds for jfp=1:n
     FP[:,jfp].=precision.(Gfix[:,1].*hseed[jfp:jfp+n-1])
-#    FP[:,jfp].=precision.(Gfix[:,1].*hseed[jfp:jfp+n-1])
-#     for ifp=1:n
-#         fpij=Gfix[ifp]/(mu[ifp]+mu[jfp])
-#         FP[ifp,jfp]=precision(fpij)
-#     end
-
     FP[jfp,jfp]=1.0+FP[jfp,jfp]
 end
 end
@@ -62,13 +54,15 @@ heqf!(F,x,pdata)
 The function evaluation as per nsold rules.
 
 The precomputed data is a big deal for this example. In particular,
-the output pdata.FFA from plan_fft goes to the fixed point map
-computation. Things get very slow if you do not use plan_fft.
+the output pdata.FFB from plan_fft! goes to the fixed point map
+computation. Things get very slow if you do not use plan_fft or plan_fft!
 """
 function heqf!(F,x,pdata)
 HeqFix!(F,x,pdata)
 #
 # naked BLAS call to fix the allocation blues
+#
+# Using any variation of F.=x-F really hurts
 #
 axpby!(1.0,x,-1.0,F)
 end
@@ -86,9 +80,21 @@ computation. Things get very slow if you do not use plan_fft.
 function HeqFix!(Gfix,x,pdata)
 global c
 n=length(x)
-Gfix.=c*heq_hankel(x,pdata);
+fongpei=true
+if fongpei
+#Gfix.=heq_hankel(x,pdata);
+Gfix.=x
+heq_hankel!(Gfix,pdata);
+cn=c*n
+Gfix.*=cn
+Gfix.*=pdata.mu
+Gfix.= 1.0 ./ (1.0 .- Gfix)
+else
+Gf=c*heq_hankel(x,pdata);
 @inbounds @views @simd for ig=1:n
-    Gfix[ig]=1.0/(1.0 - (ig-.5)*Gfix[ig])
+    Gf[ig]=1.0/(1.0 - (ig-.5)*Gf[ig])
+end
+Gfix.=Gf
 end
 end
 
@@ -112,11 +118,12 @@ rstore=zeros(2*n,1)
 zstore=zeros(2*n,1)*(1.0 + im)
 zstore2=zeros(2*n,1)*(1.0 + im)
 zstore3=zeros(2*n,1)*(1.0 + im)
+FFB=plan_fft!(zstore)
 bigseed.=[hseed[n:2*n-1]; 0; hseed[1:n-1]]
 zstore2.=conj(FFA*bigseed)
 return (mu=mu, hseed=hseed, bigseed=bigseed,
        sstore=sstore, rstore=rstore, zstore=zstore, zstore2=zstore2, 
-       zstore3=zstore3, FFA=FFA)
+       zstore3=zstore3, FFA=FFA, FFB=FFB)
 end
 
 
@@ -139,7 +146,7 @@ Print the table on page 125 (Dover edition) of Chandresekhar's book.
 
 function chandprint(x,pdata)
 global c
-muc=0:.05:1
+muc=collect(0:.05:1)
 mu=pdata.mu
 n=length(mu)
 nx=length(x)
@@ -152,25 +159,11 @@ end
 p=c*.5/n
 LC=p*LC
 hout=LC*x
-hout=ones(21,1)./(ones(21,1)-hout)
+onex=ones(size(muc))
+hout=onex./(onex-hout)
 return [muc hout]
 end
  
-
-"""
-heq_hankel!(w,b,pdata)
-Multiply an nxn Hankel matrix with seed in R^(2N-1) by a vector b
-FFA is what you get with plan_fft before you start computing
-
-Overwites w with the result
-"""
-function heq_hankel!(w,b,pdata)
-global c
-n=length(b)
-br=reverse(b; dims=1)
-w=heq_toeplitz(br,pdata)
-return w
-end
 
 """
 heq_hankel(b,pdata)
@@ -180,43 +173,53 @@ FFA is what you get with plan_fft before you start computing
 function heq_hankel(b,pdata)
 n=length(b)
 br=reverse(b; dims=1)
-w=heq_toeplitz(br,pdata)
-#println(typeof(w))
-return w
-end
+heq_toeplitz!(br,pdata)
+return br
+end 
 
 """
-heq_toeplitz(b,pdata)
+heq_hankel!(b,pdata)
+Multiply an nxn Hankel matrix with seed in R^(2N-1) by a vector b
+FFA is what you get with plan_fft before you start computing
+"""
+function heq_hankel!(b,pdata)
+b.=reverse(b;dims=1)
+heq_toeplitz!(b,pdata)
+end
+
+
+"""
+heq_toeplitz!(b,pdata)
 Multiply an nxn Toeplitz matrix with seed in R^(2n-1) by a vector b
 """
-function heq_toeplitz(b,pdata)
+function heq_toeplitz!(b,pdata)
 n=length(b);
 y=pdata.rstore
+y.*=0.0
 @views y[1:n]=b
-u=heq_cprod(y,pdata)
-return u
+heq_cprod!(y,pdata)
+b.=y[1:n]
 end
 
 """
-heq_cprod(b,pdata)
+heq_cprod!(b,pdata)
 Circulant matrix-vector product with FFT
 compute u = C b
+
+Using in-place FFT
 """
 
-function heq_cprod(b,pdata)
+function heq_cprod!(b,pdata)
 xb=pdata.zstore
-xb.=pdata.FFA\b;
-w=pdata.zstore2
-uz=pdata.zstore3
+xb.*=0.0
+xb+=b
+pdata.FFB\xb
+hankel=pdata.zstore2
+xb.*=hankel
+pdata.FFB*xb
 u=pdata.sstore
 n=length(u)
-#xb.=w.*xb
-#uz.=pdata.FFA*xb
-#u=real.(uz)
-uz.=w.*xb
-xb.=pdata.FFA*uz
-u.=real.(xb[1:n])
-return u
+b.=real.(xb)
 end
 
 
