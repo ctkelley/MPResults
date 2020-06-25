@@ -26,7 +26,6 @@ for ic=1:3
    cd(workingdir)
    figure(ic+3)
    plotnsold(half, c, maxit, levels)
-#   plotnsold(half, c, maxit, levels; bigtitle=figtitle)
    cd("../../..")
 end
 
