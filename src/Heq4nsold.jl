@@ -42,10 +42,11 @@ n=length(x)
 # Look at the formula in the notebook and you'll see what I did here.
 #
 pmu=precision.(c*n*mu)
-Gfix=x-F
-Gfix=-(c*n)*(Gfix.*Gfix.*mu)
+Gfix=precision.(x-F)
+#Gfix=-(c*n)*(Gfix.*Gfix.*mu)
+Gfix.=-(Gfix.*Gfix.*pmu)
 @views @inbounds for jfp=1:n
-    FP[:,jfp].=precision.(Gfix[:,1].*hseed[jfp:jfp+n-1])
+    FP[:,jfp].=Gfix[:,1].*pseed[jfp:jfp+n-1]
     FP[jfp,jfp]=1.0+FP[jfp,jfp]
 end
 end
