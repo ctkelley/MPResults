@@ -7,8 +7,8 @@ function heqtest(n=100, c=.5, printh="yes"; jprecision=Float64, jmaxit=10)
 FS=ones(n,)
 x0=ones(n,)
 setc(c)
-hdata=heqinit(x0,n)
-FPS=jprecision.(ones(n,n))
+hdata=heqinit(x0,n,jprecision)
+FPS=ones(jprecision,n,n)
 nsoldoutfd=nsold(x0, FS, FPS, heqf! ;
          atol=1.e-18, rtol=1.e-18, pdata=hdata, maxit=jmaxit)
 nsoldoutex=nsold(x0, FS, FPS, heqf!, heqJ!; 

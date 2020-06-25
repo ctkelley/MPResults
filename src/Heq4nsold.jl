@@ -34,17 +34,16 @@ precomputed data is a big deal for this one.
 function heqJ!(F,FP,x,pdata)
 global c
 precision=typeof(FP[1,1])
-hseed=pdata.hseed
-pseed=precision.(pdata.hseed)
+pseed=pdata.pseed
 mu=pdata.mu
 n=length(x)
 #
 # Look at the formula in the notebook and you'll see what I did here.
 #
-pmu=precision.(c*n*mu)
-Gfix=precision.(x-F)
-#Gfix=-(c*n)*(Gfix.*Gfix.*mu)
-Gfix.=-(Gfix.*Gfix.*pmu)
+pmu=pdata.pmu
+Gfix=pdata.gtmp
+@views Gfix.=precision.(x-F)
+@views Gfix.=-(Gfix.*Gfix.*pmu)
 @views @inbounds for jfp=1:n
     FP[:,jfp].=Gfix[:,1].*pseed[jfp:jfp+n-1]
     FP[jfp,jfp]=1.0+FP[jfp,jfp]
@@ -96,7 +95,7 @@ Initialize H-equation precomputed data.
 Returns (mu=mu, hseed=hseed, FFA=FFA)
 Does not provide c, which is still a global
 """
-function heqinit(x0,n)
+function heqinit(x0,n,TJ)
 T=typeof(x0)
 n=length(x0)
 if T <: Vector
@@ -108,12 +107,15 @@ else
 end
 FFA=plan_fft(ones(bsize))
 mu=collect(.5:1:n-.5)
+pmu=TJ.(mu*c)
 mu=mu/n
 hseed=zeros(ssize)
 for is=1:2*n-1
     hseed[is]=1.0/is
 end
 hseed=(.5/n)*hseed
+pseed=TJ.(hseed)
+gtmp=zeros(TJ,vsize)
 rstore=zeros(bsize)
 zstore=zeros(bsize)*(1.0 + im)
 hankel=zeros(bsize)*(1.0 + im)
@@ -121,7 +123,7 @@ FFB=plan_fft!(zstore)
 bigseed=zeros(bsize);
 @views bigseed.=[hseed[n:2*n-1]; 0; hseed[1:n-1]]
 @views hankel.=conj(FFA*bigseed)
-return (mu=mu, hseed=hseed,
+return (mu=mu, hseed=hseed, pseed=pseed, gtmp=gtmp, pmu=pmu,
        rstore=rstore, zstore=zstore, hankel=hankel, 
        FFB=FFB)
 end
