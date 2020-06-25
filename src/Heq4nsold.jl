@@ -33,13 +33,15 @@ precomputed data is a big deal for this one.
 """
 function heqJ!(F,FP,x,pdata)
 global c
-hseed=pdata.hseed
-mu=pdata.mu
 precision=typeof(FP[1,1])
+hseed=pdata.hseed
+pseed=precision.(pdata.hseed)
+mu=pdata.mu
 n=length(x)
 #
 # Look at the formula in the notebook and you'll see what I did here.
 #
+pmu=precision.(c*n*mu)
 Gfix=x-F
 Gfix=-(c*n)*(Gfix.*Gfix.*mu)
 @views @inbounds for jfp=1:n
@@ -80,22 +82,12 @@ computation. Things get very slow if you do not use plan_fft.
 function HeqFix!(Gfix,x,pdata)
 global c
 n=length(x)
-fongpei=true
-if fongpei
-#Gfix.=heq_hankel(x,pdata);
 Gfix.=x
 heq_hankel!(Gfix,pdata);
 cn=c*n
 Gfix.*=cn
 Gfix.*=pdata.mu
 Gfix.= 1.0 ./ (1.0 .- Gfix)
-else
-Gf=c*heq_hankel(x,pdata);
-@inbounds @views @simd for ig=1:n
-    Gf[ig]=1.0/(1.0 - (ig-.5)*Gf[ig])
-end
-Gfix.=Gf
-end
 end
 
 """
@@ -121,18 +113,16 @@ for is=1:2*n-1
     hseed[is]=1.0/is
 end
 hseed=(.5/n)*hseed
-bigseed=zeros(bsize);
-sstore=zeros(vsize)
 rstore=zeros(bsize)
 zstore=zeros(bsize)*(1.0 + im)
-zstore2=zeros(bsize)*(1.0 + im)
-zstore3=zeros(bsize)*(1.0 + im)
+hankel=zeros(bsize)*(1.0 + im)
 FFB=plan_fft!(zstore)
-bigseed.=[hseed[n:2*n-1]; 0; hseed[1:n-1]]
-zstore2.=conj(FFA*bigseed)
+bigseed=zeros(bsize);
+@views bigseed.=[hseed[n:2*n-1]; 0; hseed[1:n-1]]
+@views hankel.=conj(FFA*bigseed)
 return (mu=mu, hseed=hseed,
-       sstore=sstore, rstore=rstore, zstore=zstore, zstore2=zstore2, 
-       zstore3=zstore3, FFB=FFB)
+       rstore=rstore, zstore=zstore, hankel=hankel, 
+       FFB=FFB)
 end
 
 
@@ -207,7 +197,7 @@ y=pdata.rstore
 y.*=0.0
 @views y[1:n]=b
 heq_cprod!(y,pdata)
-b.=y[1:n]
+@views b.=y[1:n]
 end
 
 """
@@ -221,13 +211,11 @@ Using in-place FFT
 function heq_cprod!(b,pdata)
 xb=pdata.zstore
 xb.*=0.0
-xb+=b
+xb.+=b
 pdata.FFB\xb
-hankel=pdata.zstore2
+hankel=pdata.hankel
 xb.*=hankel
 pdata.FFB*xb
-u=pdata.sstore
-n=length(u)
 b.=real.(xb)
 end
 
