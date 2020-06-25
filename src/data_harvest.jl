@@ -22,10 +22,10 @@ for ic=1:3
    c=cvals[ic]
    maxit=itvals[ic]
    workingdir=string(BaseDirectory,"c=",string(c),"/Float16")
-   figtitle=string("Figure"," ",string(ic+3))
    cd(workingdir)
-   figure(ic+3)
+   figtitle=string("Figure"," ",string(ic+3))
    plotnsold(half, c, maxit, levels)
+   figure(ic+3)
    cd("../../..")
 end
 
