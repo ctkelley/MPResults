@@ -84,9 +84,10 @@ global c
 n=length(x)
 Gfix.=x
 heq_hankel!(Gfix,pdata);
-cn=c*n
-Gfix.*=cn
-Gfix.*=pdata.mu
+#cn=c*n
+#Gfix.*=cn
+#Gfix.*=pdata.mu
+Gfix.*=pdata.pmu
 Gfix.= 1.0 ./ (1.0 .- Gfix)
 end
 
