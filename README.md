@@ -4,7 +4,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 Update of June, 2020.
 
-I've made the code for the function evaluation run faster, at least for small dimensions with double and single precision linear algebra. 
+I've made the code for the function evaluation run faster, at least for small dimensions with double and single precision linear algebra. I have also made it easier to duplicate the results. You're welcome.
 
 ## Readme Contents
 
