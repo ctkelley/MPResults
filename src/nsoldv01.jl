@@ -82,73 +82,83 @@ search kicks in.
 
 
 """
-function nsold(x, FS, FPS, F!, J! = diffjac!; rtol=1.e-6, atol=1.e-12, 
-            maxit=20, dx=1.e-6, pdata=nothing) 
+function nsold(
+    x,
+    FS,
+    FPS,
+    F!,
+    J! = diffjac!;
+    rtol = 1.e-6,
+    atol = 1.e-12,
+    maxit = 20,
+    dx = 1.e-6,
+    pdata = nothing,
+)
 
-EvalF!(FS,x,F!,pdata)
-resnorm=norm(FS)
-reshist=resnorm*ones(1,)
-tol=rtol*resnorm+atol
-itc=0
-while resnorm > tol && itc < maxit 
-#
-# FPF and FPS will now share the data for L and U, but are
-# different things. You can't say FPS=lu!(FPS) and then update
-# the Jacobian later in the nonlinear iteration.
-# 
-# Don't believe me? Try it and see.
-#
-    EvalJ!(FS,FPS,x,F!,J!,dx,pdata)
-    FPF=lu!(FPS);
-    step = - (FPF\FS) 
-    x=x+step
-    EvalF!(FS,x,F!,pdata)
-    resnorm=norm(FS)
-    push!(reshist,resnorm)
-    itc=itc+1
-end
-return(solution=x, ithist=reshist)
-end
-
-function EvalF!(FS,x,F!,pdata)
-F!
-if pdata == nothing
-   F!(FS,x)
-else
-   F!(FS,x,pdata)
-end
-end
-
-function EvalJ!(FS,FPS,x,F!,J!,dx,pdata)
-if J! != diffjac!
-if pdata == nothing
-   J!(FS,FPS,x)
-else
-   J!(FS,FPS,x,pdata)
-end
-else
-   diffjac!(FS,FPS,F!,x,dx,pdata)
+    EvalF!(FS, x, F!, pdata)
+    resnorm = norm(FS)
+    reshist = resnorm * ones(1,)
+    tol = rtol * resnorm + atol
+    itc = 0
+    while resnorm > tol && itc < maxit
+        #
+        # FPF and FPS will now share the data for L and U, but are
+        # different things. You can't say FPS=lu!(FPS) and then update
+        # the Jacobian later in the nonlinear iteration.
+        # 
+        # Don't believe me? Try it and see.
+        #
+        EvalJ!(FS, FPS, x, F!, J!, dx, pdata)
+        FPF = lu!(FPS)
+        step = -(FPF \ FS)
+        x = x + step
+        EvalF!(FS, x, F!, pdata)
+        resnorm = norm(FS)
+        push!(reshist, resnorm)
+        itc = itc + 1
+    end
+    return (solution = x, ithist = reshist)
 end
 
-end
-
-function diffjac!(FS,FPS,F!,x,dx,pdata)
-precision=typeof(FPS[1,1])
-h=dx*norm(x,Inf) + 1.e-8
-n=length(x)
-y=ones(n,1)
-FY=ones(n,1)
-for ic=1:n
-    y.=x;
-    y[ic]=y[ic]+h
-    if pdata==nothing
-       F!(FY,y)
+function EvalF!(FS, x, F!, pdata)
+    F!
+    if pdata == nothing
+        F!(FS, x)
     else
-       F!(FY,y,pdata)
-    end
-    for ir=1:n
-       FPS[ir,ic]=(FY[ir]-FS[ir])/h
+        F!(FS, x, pdata)
     end
 end
+
+function EvalJ!(FS, FPS, x, F!, J!, dx, pdata)
+    if J! != diffjac!
+        if pdata == nothing
+            J!(FS, FPS, x)
+        else
+            J!(FS, FPS, x, pdata)
+        end
+    else
+        diffjac!(FS, FPS, F!, x, dx, pdata)
+    end
+
+end
+
+function diffjac!(FS, FPS, F!, x, dx, pdata)
+    precision = typeof(FPS[1, 1])
+    h = dx * norm(x, Inf) + 1.e-8
+    n = length(x)
+    y = ones(size(x))
+    FY = ones(size(x))
+    for ic = 1:n
+        y .= x
+        y[ic] = y[ic] + h
+        if pdata == nothing
+            F!(FY, y)
+        else
+            F!(FY, y, pdata)
+        end
+        for ir = 1:n
+            FPS[ir, ic] = (FY[ir] - FS[ir]) / h
+        end
+    end
 
 end
