@@ -16,7 +16,7 @@ I've made the code for the function evaluation run faster, at least for small di
 
 [Notebook Problems?](#Notebook-Problems)
 
-[Support](#Support)
+[Research Support](#Support)
 
 
 ## What's in this repo
