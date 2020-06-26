@@ -24,6 +24,7 @@ include("plotnsold.jl")
 include("fprintTeX.jl")
 include("data_populate.jl")
 include("data_harvest.jl")
+#include("tabulatensold.jl")
 
 using .Heq4nsold
 

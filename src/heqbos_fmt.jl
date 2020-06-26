@@ -1,7 +1,7 @@
 function heqbos!(F, x)
     n = length(x)
     c = 1.0
-    mu = .5:1:n - .5
+    mu = 0.5:1:n-0.5
     mu = mu / n
     h = 1.0 / n
     cval = sqrt(1.0 - c)
@@ -20,7 +20,7 @@ function heqbos!(F, x)
 end
 
 function chandprintbos(x, mu, c)
-    muc = 0:.05:1
+    muc = 0:0.05:1
     n = length(mu)
     nx = length(x)
     LC = zeros(21, n)
@@ -29,10 +29,9 @@ function chandprintbos(x, mu, c)
             LC[i, j] = muc[i] / (muc[i] + mu[j])
         end
     end
-    p = c * .5 / n
+    p = c * 0.5 / n
     LC = p * LC
     hout = LC * x
     hout = ones(21, 1) ./ (ones(21, 1) - hout)
     return [muc hout]
 end
-
