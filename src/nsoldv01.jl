@@ -64,7 +64,7 @@ In the future J! will also be a matrix-vector product and FPS will
 be the PREALLOCATED (!!) storage for the GMRES(m) Krylov vectors.
 
 Lemme tell ya 'bout precision. I designed this code for full precision
-functions and linear algebra in any precision you want. You can decleare
+functions and linear algebra in any precision you want. You can declare
 FPS as Float64, Float32, or Float16 and nsold will do the right thing if 
 YOU do not destroy the declaration in your J! function. I'm amazed 
 that this works so easily. 
@@ -73,7 +73,7 @@ If the Jacobian is reasonably well conditioned, I can see no reason
 to do linear algebra in double precision
 
 Don't try to evaluate function and Jacobian all at once because 
-that will cost you a extra function evaluation everytime the line
+that will cost you a extra function evaluation every time the line
 search kicks in.
 
 2) Any precomputed data for functions, Jacobians, matrix-vector products
