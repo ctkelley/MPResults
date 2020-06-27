@@ -8,7 +8,7 @@ module MPResults
 export nsold
 export heqtest
 export plotnsold
-export frpintTeX
+export fprintTeX
 export data_populate
 export data_harvest
 
