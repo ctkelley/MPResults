@@ -12,11 +12,9 @@ at the code.
 """
 module Heq4nsold
 
-global c = 0.5
-
 export heqf!
 export heqJ!
-export setc
+export setc!
 export chandprint
 export heqinit
 
@@ -32,7 +30,6 @@ The is the Jacobian evaluation playing by nsold rules. The
 precomputed data is a big deal for this one. 
 """
 function heqJ!(F, FP, x, pdata)
-    global c
     precision = typeof(FP[1, 1])
     pseed = pdata.pseed
     mu = pdata.mu
@@ -80,13 +77,9 @@ the output pdata.FFA from plan_fft goes to the fixed point map
 computation. Things get very slow if you do not use plan_fft. 
 """
 function HeqFix!(Gfix, x, pdata)
-    global c
     n = length(x)
     Gfix .= x
     heq_hankel!(Gfix, pdata)
-    #cn=c*n
-    #Gfix.*=cn
-    #Gfix.*=pdata.mu
     Gfix .*= pdata.pmu
     Gfix .= 1.0 ./ (1.0 .- Gfix)
 end
@@ -94,11 +87,12 @@ end
 """
 Initialize H-equation precomputed data.
 Returns (mu=mu, hseed=hseed, FFA=FFA)
-Does not provide c, which is still a global
 """
-function heqinit(x0, n, TJ)
+function heqinit(x0, n, c, TJ)
     T = typeof(x0)
     n = length(x0)
+    cval=ones(1,)
+    cval[1]=c
     if T <: Vector
         vsize = (n,)
         bsize = (2 * n,)
@@ -125,6 +119,7 @@ function heqinit(x0, n, TJ)
     @views bigseed .= [hseed[n:2*n-1]; 0; hseed[1:n-1]]
     @views hankel .= conj(FFA * bigseed)
     return (
+        cval=cval,
         mu = mu,
         hseed = hseed,
         pseed = pseed,
@@ -144,9 +139,11 @@ setc(cin)
 If you are varying c in a computation, this function
 lets you set it.
 """
-function setc(cin)
-    global c
-    c = cin
+function setc!(pdata, cin)
+    c=pdata.cval[1]
+    cfix=cin/c
+    pdata.pmu.*=cfix
+    pdata.cval[1]=cin
 end
 
 """
@@ -156,7 +153,7 @@ Print the table on page 125 (Dover edition) of Chandresekhar's book.
 """
 
 function chandprint(x, pdata)
-    global c
+    c=pdata.cval[1]
     muc = collect(0:0.05:1)
     mu = pdata.mu
     n = length(mu)

@@ -6,8 +6,7 @@ Generates the examples for the SIREV paper.
 function heqtest(n = 100, c = 0.5, printh = "yes"; jprecision = Float64, jmaxit = 10)
     FS = ones(n)
     x0 = ones(n)
-    setc(c)
-    hdata = heqinit(x0, n, jprecision)
+    hdata = heqinit(x0, n, c, jprecision)
     FPS = ones(jprecision, n, n)
     nsoldoutfd = nsold(
         x0,
