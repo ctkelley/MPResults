@@ -86,9 +86,9 @@ git clone https://github.com/ctkelley/MPResults
 
 I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __nsoldv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change. __This is version .01. No software with log(version) < 0 should be trusted.__
 
-At some point (after Armijo, GMRES, and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
+At some point (after Armijo and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
 
-__nsoldv01.jl__ is the name of the file. The solver is __nsold__. I want to keep the name of the solver indpendent of the version number so I can use these examples when I move to version .02.
+__nsoldv01.jl__ is the name of the file. The solver is __nsold__. I want to keep the name of the solver indpendent of the version number so I can use these examples when I move to version .02. I may well change the user interface between now and the first release of the package. I make no promises to keep things in sync between the pacakge and this repo, but will try. 
 
 ## Notebook Problems
  
