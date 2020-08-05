@@ -2,7 +2,9 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-Update of June, 2020.
+Update of June, 2020. Tagged as v0.5. __This is the version that made the plots/tables in the original manuscript.__ 
+
+If I make the codes better/faster/shinier before publication, that will not be in the tagger 0.5 version.
 
 I've made the code for the function evaluation run faster, at least for small dimensions with double and single precision linear algebra. I have also made it easier to duplicate the results. You're welcome.
 
