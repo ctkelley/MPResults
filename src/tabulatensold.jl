@@ -35,7 +35,8 @@ function fillFdata!(Fdata, level, half)
     loadme(fmt::String) = @eval @load($fmt)
     for ir = 1:level
         gridlev = 512 * (2^ir)
-        mixedpfile = string("paper", string(gridlev), ".jld")
+        mixedpfile = string("paper", string(gridlev), ".jld2")
+#        mixedpfile = string("paper", string(gridlev), ".jld")
         loadme(mixedpfile)
         if half == "no"
             Fdata[1, ir, :] .= fout64.exactout.ithist

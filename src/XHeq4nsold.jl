@@ -30,7 +30,6 @@ The is the Jacobian evaluation playing by nsold rules. The
 precomputed data is a big deal for this one. 
 """
 function heqJ!(F, FP, x, pdata)
-    precision = typeof(FP[1, 1])
     pseed = pdata.pseed
     mu = pdata.mu
     n = length(x)
@@ -88,8 +87,7 @@ end
 Initialize H-equation precomputed data.
 Returns (mu=mu, hseed=hseed, FFA=FFA)
 """
-function heqinit(x0, n, c)
-    T = typeof(x0)
+function heqinit(x0::T, n, c) where T
     n = length(x0)
     cval=ones(1,)
     cval[1]=c
@@ -102,7 +100,7 @@ function heqinit(x0, n, c)
     end
     FFA = plan_fft(ones(bsize))
     mu = collect(0.5:1:n-0.5)
-    pmu = (mu * c)
+    pmu = mu * c
     mu = mu / n
     hseed = zeros(ssize)
     for is = 1:2*n-1
