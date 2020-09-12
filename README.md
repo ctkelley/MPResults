@@ -92,7 +92,19 @@ __nsoldv01.jl__ is the name of the file. The solver is __nsold__. I want to keep
 
 ## Notebook Problems
  
-It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. You have a good chance of fixing this with the __update__ command within pkg. If you did the update when you installed this application and are still having problems. Try typing __update IJulia__ from pkg. If that fails ...
+It is very important that PyPlot and IJulia use the same version of conda. If the notebook is complaining about the kernel, that is likely the issue. You have a good chance of fixing this with the __update__ command within pkg (see detailsbelow). If you did the update when you installed this application and are still having problems. Try typing __update IJulia__ and __build IJulia__ from pkg. 
+
+
+__How to update all packages__: If you are running anything other than Julia 1.5. Your packages may be out of sync with the application. To fix this
+       1. Do a package update from the REPL
+       2. From the REPL in the MPResults directory. 
+          a. Type ] to get into the package manager
+          b. type  ```activate .``` (the . is important) at the package prompt
+          c. type ```update``` at the package prompt
+          d. hit backspace to exit the package manager   
+       3. Doing this will update the .toml files for the application   
+
+If that fails ...
 
 The worst case, which has happened to me more than once, is that you'll have to 
 
@@ -103,8 +115,12 @@ The worst case, which has happened to me more than once, is that you'll have to
    
    3. Run Julia (which will create a new .julia in your home directory)
       1. Put your config diectory back in there. 
+      
+  4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.    
+      
+   
         
-   4. Reinstall ALL YOUR PACKAGES! That is a real pain, but has never failed to fix the problem for me.
+   
         
 
 ## Support
