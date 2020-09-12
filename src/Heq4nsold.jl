@@ -88,7 +88,7 @@ end
 Initialize H-equation precomputed data.
 Returns (mu=mu, hseed=hseed, FFA=FFA)
 """
-function heqinit(x0, n, c, TJ)
+function heqinit(x0, n, c)
     T = typeof(x0)
     n = length(x0)
     cval=ones(1,)
@@ -102,15 +102,15 @@ function heqinit(x0, n, c, TJ)
     end
     FFA = plan_fft(ones(bsize))
     mu = collect(0.5:1:n-0.5)
-    pmu = TJ.(mu * c)
+    pmu = mu * c
     mu = mu / n
     hseed = zeros(ssize)
     for is = 1:2*n-1
         hseed[is] = 1.0 / is
     end
     hseed = (0.5 / n) * hseed
-    pseed = TJ.(hseed)
-    gtmp = zeros(TJ, vsize)
+    pseed = hseed
+    gtmp = zeros(vsize)
     rstore = zeros(bsize)
     zstore = zeros(bsize) * (1.0 + im)
     hankel = zeros(bsize) * (1.0 + im)
@@ -134,7 +134,7 @@ end
 
 
 """
-setc(cin)
+setc!(pdata,cin)
 
 If you are varying c in a computation, this function
 lets you set it.

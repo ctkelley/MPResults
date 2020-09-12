@@ -5,12 +5,13 @@ This module has the code you need for the mixed precision example.
 """
 module MPResults
 
-export nsold
+export nsold01
 export heqtest
 export plotnsold
 export fprintTeX
 export data_populate
 export data_harvest
+
 
 using PyPlot
 using LinearAlgebra

@@ -1,5 +1,5 @@
 """
-    nsold(x, FS, FPS, F!, J!=diffjac!; rtol=1.e-6, atol=1.e-12, 
+    nsold01(x, FS, FPS, F!, J!=diffjac!; rtol=1.e-6, atol=1.e-12, 
             maxit=20, dx=1.e-6, pdata=nothing) 
 
 This is Version .01. Nothing with a version number having a negative
@@ -82,7 +82,7 @@ search kicks in.
 
 
 """
-function nsold(
+function nsold01(
     x,
     FS,
     FPS,
