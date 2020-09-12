@@ -1,5 +1,5 @@
 """
-data_populate(c=.5; half="no",level=3)
+data_populate(c = 0.5; half = "no", level = 3, nlmaxit=10)
 
 This makes the files that plotnsold uses to make the figures
 and tables in the paper. 
@@ -17,19 +17,16 @@ using MPResults
 
 at the Julia prompt.
 """
-function data_populate(c = 0.5; half = "no", level = 3)
+function data_populate(c = 0.5; half = "no", level = 3, nlmaxit=10)
     #
     # Check the value of c against what the paper uses.
     #
     if c == 0.5
         locator = "=5"
-        nlmaxit = 10
     elseif c == 0.99
         locator = "=99"
-        nlmaxit = 10
     elseif c == 1
         locator = "=1"
-        nlmaxit = 30
     else
         println("Your choices are c=.5, .99, 1.")
         return
@@ -63,7 +60,8 @@ function data_populate(c = 0.5; half = "no", level = 3)
             fout32 = heqtest(n, c, "no"; jprecision = Float32, jmaxit = nlmaxit)
             @save savedat[nd] fout64 fout32
         else
-            fout16 = heqtest(n, c, "no"; jprecision = Float16, jamxit = nlmaxit)
+            fout16 = heqtest(n, c, "no"; 
+                 jprecision = Float16, jmaxit = nlmaxit)
             @save savedat[nd] fout16
         end
 
@@ -74,8 +72,8 @@ end
 function filenames(BaseDirectory)
     savedat = Array{String,1}(undef, 5)
     for nd = 1:5
-        dimstring = string("/paper", string(512 * 2^nd), ".jld")
-        #    dimstring=string("/paper",string(512*2^nd),".jld2")
+       # dimstring = string("/paper", string(512 * 2^nd), ".jld")
+        dimstring=string("/paper",string(512*2^nd),".jld2")
         savedat[nd] = string(BaseDirectory, dimstring)
     end
     return savedat
