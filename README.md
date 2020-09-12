@@ -2,7 +2,9 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-__The version that made the plots/tables in the original manuscript got smashed in an attemt to "tune" the code. There's a bug in this version that affects the analytic Jacobian coputations. I found and fixed it and will get the right stuff up here soon. The finite difference Jacobian computaions work as advertised.__
+__This version will make the plots/tables in the paper/notebook.__
+
+I am working on a veresion that will eliminate the need for JLD and simply read/write plain vanilla arrays. 
 
 ## Readme Contents
 
@@ -23,7 +25,7 @@ __The version that made the plots/tables in the original manuscript got smashed 
    You need these packages: 
    1. PyPlot
    2. LinearAlgebra
-   3. JLD2
+   3. JLD
    4. Printf
    5. FFTW
    6. AbstractFFTS
