@@ -2,11 +2,7 @@
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
-__The version that made the plots/tables in the original manuscript is v0.5. Look for it under the tagged branches.__
-
-If I make the codes better/faster/shinier before publication, that will not be in the tagged 0.5 version. I'll put that in this branch.
-
-I've made the code for the function evaluation run faster, at least for small dimensions with double and single precision linear algebra. I have also made it easier to duplicate the results. You're welcome.
+__The version that made the plots/tables in the original manuscript got smashed in an attemt to "tune" the code. There's a bug in this version that affects the analytic Jacobian coputations. I found and fixed it and will get the right stuff up here soon. The finite difference Jacobian computaions work as advertised.__
 
 ## Readme Contents
 
