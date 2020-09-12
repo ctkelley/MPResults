@@ -25,7 +25,7 @@ I am working on a veresion that will eliminate the need for JLD and simply read/
    You need these packages: 
    1. PyPlot
    2. LinearAlgebra
-   3. JLD
+   3. JLD2
    4. Printf
    5. FFTW
    6. AbstractFFTS
