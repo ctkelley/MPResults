@@ -1,5 +1,7 @@
 # MPResults
 
+This is v1.0
+
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
 __This version will make the plots/tables in the paper/notebook.__
