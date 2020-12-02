@@ -4,7 +4,14 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 __This version will make the plots/tables in the paper/notebook.__
 
-I am working on a veresion that will eliminate the need for JLD and simply read/write plain vanilla arrays. 
+I am working on a veresion that will eliminate the need for JLD and simply read/write plain vanilla arrays. I have tagged the JLD version which is for the orignal version of the paper.
+
+I am also
+
+  - working on getting some viewgraphs in here
+  - integrating this with my new [SIAMFANLEquations.jl](#https://github.com/ctkelley/SIAMFANLEquations.jl) package. This will improve performance.
+  
+This may or may not happed before the paper is out of review.
 
 ## Readme Contents
 
