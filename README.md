@@ -1,6 +1,6 @@
 # MPResults
 
-This is v1.0
+This is v2.0 dev
 
 This repo supports my paper __Newton's Method in Mixed Precision__. 
 
