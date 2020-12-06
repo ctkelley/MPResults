@@ -148,9 +148,9 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "b417be52e8be24e916e34b3d70ec2da7bdf56a68"
+git-tree-sha1 = "9d738ba28afdbd877397fb24d48440244590e039"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.12"
+version = "1.0.13"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -191,11 +191,11 @@ uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 
 [[SIAMFANLEquations]]
 deps = ["AbstractFFTs", "BandedMatrices", "FFTW", "LaTeXStrings", "LinearAlgebra", "Printf", "SparseArrays", "SuiteSparse", "Test"]
-git-tree-sha1 = "d10c7c7467f24e09debf0882b07230d45ea6f39d"
+git-tree-sha1 = "444177a49768a6c7ee5b721d24e674ae6e6b7210"
 repo-rev = "master"
 repo-url = "https://github.com/ctkelley/SIAMFANLEquations.jl"
 uuid = "084e46ad-d928-497d-ad5e-07fa361a48c4"
-version = "0.2.3"
+version = "0.3.0"
 
 [[Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"

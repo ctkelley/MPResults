@@ -1,7 +1,7 @@
 """
-mptest(c=.5; maxit=10, pmax=5, T=Float64)
+mptest(c=.5; maxit=10, pmax=5, T=Float64, dsave=false)
 """
-function mptest(c=.5; maxit=10, pmax=5, T=Float64)
+function mptest(c=.5; maxit=10, pmax=5, T=Float64, dsave=false)
 fmtplot = ("k-", "k--", "k-.", "k-.", "k>:")
 dimbase=1024
 aymin=1.e-15
@@ -17,7 +17,40 @@ for TI in (Float64, Float32)
     PlotHist(DataC, pmax, maxit, aymin, TI)
 end
 end
+~dsave || writehist(DataC, c, T, pmax, maxit)
 return DataC
+end
+
+"""
+data_populate(c=.5; maxit=10, pmax=5, T=Float64, dsave=false)
+"""
+function data_populate(c=.5; maxit=10, pmax=5, T=Float64)
+fmtplot = ("k-", "k--", "k-.", "k-.", "k>:")
+dimbase=1024
+aymin=1.e-15
+if T == Float16
+DataC=zeros(maxit+1,pmax,2)
+BuildHist!(DataC,dimbase, c, pmax, maxit, T)
+else
+DataC=zeros(maxit+1,pmax,4)
+for TI in (Float64, Float32)
+    BuildHist!(DataC,dimbase, c, pmax, maxit, TI)
+end
+end
+writehist(DataC, c, T, pmax, maxit)
+return DataC
+end
+
+
+function writehist(DataC, c, T,  pmax=5, maxit=10)
+dimbase=1024
+aymin=1.e-15
+if T == Float16
+filename=string("F16c",string(c))
+else
+filename=string("F3264c",string(c))
+end
+testiow(filename, DataC)
 end
 
 function storehist(c,pmax,maxit,T)
@@ -32,9 +65,6 @@ DataC=zeros(maxit+1,pmax,4)
 filename=string(T,"c",string(c))
 end
 BuildHist!(DataC,dimbase, c, pmax, maxit, T)
-#PlotHist(DataC, pmax, maxit, aymin, T)
-#return DataC
-#filename=string("F16c",string(c))
 testiow(filename,DataC)
 end
 
