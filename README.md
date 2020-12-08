@@ -6,14 +6,9 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 __This version will make the plots/tables in the paper/notebook.__
 
-I am working on a veresion that will eliminate the need for JLD and simply read/write plain vanilla arrays. I have tagged the JLD version which is for the orignal version of the paper.
+This version does not need JLD or JLD2 and uses the solvers and test problems from my new [SIAMFANLEquations.jl](#https://github.com/ctkelley/SIAMFANLEquations.jl) package.
 
-I am also
-
-  - working on getting some viewgraphs in here
-  - integrating this with my new [SIAMFANLEquations.jl](#https://github.com/ctkelley/SIAMFANLEquations.jl) package. This will improve performance.
-  
-This may or may not happed before the paper is out of review.
+I am working on getting some viewgraphs in here from a recent talk. That should happen soon.
 
 ## Readme Contents
 
@@ -34,7 +29,7 @@ This may or may not happed before the paper is out of review.
    You need these packages: 
    1. PyPlot
    2. LinearAlgebra
-   3. JLD2
+   3. __SIAMFANLEquations__
    4. Printf
    5. FFTW
    6. AbstractFFTS
@@ -85,19 +80,31 @@ git clone https://github.com/ctkelley/MPResults
           
           Julia prints out the story of package installation. The instantiate command should install your missing packages automatically. The update part is to make sure that you're using the latest stuff. I will try to keep this updated, but I could be dead when you read this.
         
-        
+   4. Fire up IJulia by 
+      1. Typing ```notebook``` at the REPL Prompt
+      2. Navigating to the MPResults directory
+      3. Clicking on MPResults.ipynb
+      4. Do __run all__ to make sure the LaTeX macros and the dependencies are in there. It is really important to run the first cell in the notebook. That is an invisible markdown cell with the LaTeX macros. The second cell is a code cell that organizes the dependencies and makes sure you're starting from the correct directory.
  
 
         
        
 
-## NSOLD
+## NSOL
 
-I'm working on putting the codes __and examples__ from my nonlinear solver books together as a Julia package and a book. This will take some time. __nsoldv01.jl__ is a simple Newton code (no globalization, no Krylov solver, ...) but it does let you do linear solves in your choice of precision, which is the point of this paper. The name of the code, the interface, and the algorithms will almost surely change. __This is version .01. No software with log(version) < 0 should be trusted.__
+__nsol.jl__ is from my new book/package/notebook project. 
 
-At some point (after Armijo and pseudo-transient continuation get in there) I will put this up as a package with several examples. I'll put a pointer to that package here when it's ready.
+# Solving Nonlinear Equations with Iterative Methods: <br> Solvers and Examples in Julia
 
-__nsoldv01.jl__ is the name of the file. The solver is __nsold__. I want to keep the name of the solver indpendent of the version number so I can use these examples when I move to version .02. I may well change the user interface between now and the first release of the package. I make no promises to keep things in sync between the pacakge and this repo, but will try. 
+This book will be a sequel to 
+
+(Kel03) C. T. Kelley, [***Solving Nonlinear Equations with Newton's Method***](https://my.siam.org/Store/Product/viewproduct/?ProductId=841) , Fundamentals of Algorithms 1, SIAM 2003.
+
+The components are
+ -  A book now under contract to be published by SIAM in 2022
+ -  A Julia package: [SIAMFANLEquations.jl](https://github.com/ctkelley/SIAMFANLEquations.jl)
+ - [A collecton of IJulia notebooks:](https://github.com/ctkelley/NotebookSIAMFANL/releases/tag/v0.2.3)
+
 
 ## Notebook Problems
  
