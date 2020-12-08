@@ -1,7 +1,0 @@
-using SIAMFANLEquations
-using SIAMFANLEquations.TestProblems
-using MPResults
-c=1.0;
-datadump(string("Start_c=",string(c)),c);
-data_populate(c; half=true);
-datadump(string("Done_c=",string(c)),c);
