@@ -6,7 +6,7 @@ This repo supports my paper __Newton's Method in Mixed Precision__.
 
 __This version will make the plots/tables in the paper/notebook.__
 
-This version does not need JLD or JLD2 and uses the solvers and test problems from my new [SIAMFANLEquations.jl](#https://github.com/ctkelley/SIAMFANLEquations.jl) package.
+This version does not need JLD or JLD2 and uses the solvers and test problems from my new [SIAMFANLEquations.jl](https://github.com/ctkelley/SIAMFANLEquations.jl) package.
 
 I am working on getting some viewgraphs in here from a recent talk. That should happen soon.
 
