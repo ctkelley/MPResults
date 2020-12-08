@@ -43,6 +43,7 @@ I am working on getting some viewgraphs in here from a recent talk. That should 
    2. It's even better to clone the repo and get to the notebook from your own computer anyhow.
    3. __newtonmp.html__ is the bib for the notebook. __Do not touch it__.
 4. A pdf file of the notebook.
+5. Viewgraphs from a talk I gave at Hong Kong Polytechnic on this.
 
 ## How to use this mess
 
