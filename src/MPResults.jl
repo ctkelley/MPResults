@@ -8,15 +8,13 @@ module MPResults
 export
 # Functions
 heqtest,
-mptest,
-testiow,
-testior,
 PlotHist,
-storehist,
-readem,
-htest,
-htime,
-hset
+Fname,
+data_harvest,
+data_populate,
+readmpdata,
+MakeTable,
+PlotData
 
 using PyPlot
 using LinearAlgebra
@@ -26,8 +24,9 @@ using SIAMFANLEquations.TestProblems
 using SIAMFANLEquations.Examples
 
 include("heqtest.jl")
-include("mptest.jl")
-include("testio.jl")
-include("readem.jl")
+include("data_populate.jl")
+include("Data_IO.jl")
+include("PlotData.jl")
+include("TableData.jl")
 
 end #module
