@@ -79,7 +79,7 @@ pstart = (T==Float32)*3 + (T==Float64)*1
 end
 subplot(b,2,pstart)
 for ip=1:pmax
-semilogy(0:maxit,DataC[:,ip,pstart],fmtplot[ip])
+semilogy(0:maxit,DataC[:,ip,pstart],fmtplot[ip]);
 axis([0.0, maxit, aymin, 1.0])
 if pstart == 1
        legend(["1024", "2048", "4096", "8192", "16384"])
