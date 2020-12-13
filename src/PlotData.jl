@@ -3,18 +3,18 @@ data_harvest(all=true)
 Makes all the figures from the paper for the notebook.
 This function calls PlotData to make the figures one at a time.
 """
-function data_harvest(all=true)
+function data_harvest(all=true, paper=false)
 cvals = [.5, .99, 1]
 itvals = [10, 10, 30]
 level=5
 for ic=1:3
     figure(ic)
-    PlotData(cvals[ic])
+    PlotData(cvals[ic]; ptitle=~paper)
 end
 if all
 for ic=1:3
     figure(ic+3)
-    PlotData(cvals[ic]; half=true)
+    PlotData(cvals[ic]; half=true, ptitle=~paper)
 end
 end
 end
@@ -70,6 +70,8 @@ end
 
 function PlotHist(DataC::Array{Float64,3}, pmax, maxit, aymin, T)
 fmtplot = ("k-", "k--", "k-.", "k-.", "k>:")
+gxlabel = "Nonlinear Iterations"
+gylabel = L"$|| F ||/||F_0||$"
 if T==Float16
 b=1
 pstart=1
@@ -84,13 +86,27 @@ axis([0.0, maxit, aymin, 1.0])
 if pstart == 1
        legend(["1024", "2048", "4096", "8192", "16384"])
 end
-title(string(string(T)," analytic "))
+title(string(prestring(T),",", "analytic Jacobian"))
+xlabel(gxlabel)
+ylabel(gylabel)
 end
 subplot(b,2,pstart+1)
 for ip=1:pmax
 semilogy(0:maxit,DataC[:,ip,pstart+1],fmtplot[ip])
-title(string(string(T)," finite difference"))
+title(string(prestring(T),",", "finite difference Jacobian"))
+xlabel(gxlabel)
+ylabel(gylabel)
 axis([0.0, maxit, aymin, 1.0])
 end
 end
 
+function prestring(T)
+if T==Float64
+   pstr="Double precision"
+elseif T==Float32
+   pstr="Single precision"
+else
+   pstr="Half precision"
+end
+return pstr
+end
