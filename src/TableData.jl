@@ -17,6 +17,11 @@ c==1 ? (maxit=30) : (maxit=10)
 DataC=zeros(maxit+1,5,2)
 tcap=string("Half Precision Computed Convergence Rates: c=",string(c))
 readmpdata(fname,DataC)
+for it=1:2
+for iz=1:5
+DataC[:,iz,it] = DataC[:,iz,it]./DataC[1,iz,it];
+end
+end
 qresid=DataC[:,:,1]
 qrate=qresid[2:maxit+1,:]./qresid[1:maxit,:]
 itnum=collect(Int,1:maxit);

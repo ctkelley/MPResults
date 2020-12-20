@@ -1,5 +1,5 @@
 """
-data_harvest(all=true)
+data_harvest(all=true, paper=false)
 Makes all the figures from the paper for the notebook.
 This function calls PlotData to make the figures one at a time.
 """
@@ -47,6 +47,11 @@ aymin=ymin(c,half)
 Datain=zeros(nits,level,nfig)
 fname=Fname(c,T)
 readmpdata(fname, Datain)
+for ic=1:nfig
+for iz = 1:5
+    Datain[:,iz,ic] .= Datain[:,iz,ic]./Datain[1,iz,ic]
+end
+end
 for T in TI
 PlotHist(Datain, level, maxit, aymin, T)
 end
@@ -95,7 +100,9 @@ for ip=1:pmax
 semilogy(0:maxit,DataC[:,ip,pstart+1],fmtplot[ip])
 title(string(prestring(T),",", "finite difference Jacobian"))
 xlabel(gxlabel)
+if T != Float16
 ylabel(gylabel)
+end
 axis([0.0, maxit, aymin, 1.0])
 end
 end
