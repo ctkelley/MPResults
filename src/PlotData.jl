@@ -62,7 +62,7 @@ end
 
 
 function ymin(c, half)
-    ymin = 1.e-15
+    ymin = 1.e-10
     if half
         if c == 1.0
             ymin = 1.e-6
