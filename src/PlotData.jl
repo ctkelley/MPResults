@@ -62,11 +62,11 @@ end
 
 
 function ymin(c, half)
-    ymin = 1.e-10
+    ymin = 1.e-15
     if half
         if c == 1.0
             ymin = 1.e-6
-        elseif c == .99
+        else
             ymin = 1.e-10
         end
     end
@@ -74,7 +74,7 @@ function ymin(c, half)
 end
 
 function PlotHist(DataC::Array{Float64,3}, pmax, maxit, aymin, T)
-fmtplot = ("k-", "k--", "k-.", "k-.", "k>:")
+fmtplot = ("k-", "k--", "k-.", "k:", "k>:")
 gxlabel = "Nonlinear Iterations"
 gylabel = L"$|| F ||/||F_0||$"
 if T==Float16
