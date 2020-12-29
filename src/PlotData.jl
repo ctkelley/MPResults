@@ -48,7 +48,7 @@ Datain=zeros(nits,level,nfig)
 fname=Fname(c,T)
 readmpdata(fname, Datain)
 for ic=1:nfig
-for iz = 1:5
+for iz = 1:level
     Datain[:,iz,ic] .= Datain[:,iz,ic]./Datain[1,iz,ic]
 end
 end
