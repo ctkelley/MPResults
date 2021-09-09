@@ -2,7 +2,11 @@
 
 This is v1.0
 
-This repo supports my paper __Newton's Method in Mixed Precision__. 
+This repo supports my paper 
+
+C. T. Kelley,
+__Newton's Method in Mixed Precision__,
+2021, To appear in __SIAM Review__
 
 __This version will make the plots/tables in the paper/notebook.__
 
